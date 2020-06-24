@@ -18,7 +18,7 @@ namespace Nozomi.net.Services
     /// <summary>
     /// Item operations.
     /// </summary>
-    public partial class Item : IServiceOperations<NozomiAPI>, IItem
+    public partial class Item : IServiceOperations<NozomiApiClient>, IItem
     {
         /// <summary>
         /// Initializes a new instance of the Item class.
@@ -29,7 +29,7 @@ namespace Nozomi.net.Services
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public Item(NozomiAPI client)
+        public Item(NozomiApiClient client)
         {
             if (client == null)
             {
@@ -39,9 +39,9 @@ namespace Nozomi.net.Services
         }
 
         /// <summary>
-        /// Gets a reference to the NozomiAPI
+        /// Gets a reference to the NozomiApiClient
         /// </summary>
-        public NozomiAPI Client { get; private set; }
+        public NozomiApiClient Client { get; private set; }
 
         /// <summary>
         /// Obtains all of the relevant items you own.

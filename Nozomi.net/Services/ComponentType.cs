@@ -18,7 +18,7 @@ namespace Nozomi.net.Services
     /// <summary>
     /// ComponentType operations.
     /// </summary>
-    public partial class ComponentType : IServiceOperations<NozomiAPI>, IComponentType
+    public partial class ComponentType : IServiceOperations<NozomiApiClient>, IComponentType
     {
         /// <summary>
         /// Initializes a new instance of the ComponentType class.
@@ -29,7 +29,7 @@ namespace Nozomi.net.Services
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public ComponentType(NozomiAPI client)
+        public ComponentType(NozomiApiClient client)
         {
             if (client == null)
             {
@@ -39,9 +39,9 @@ namespace Nozomi.net.Services
         }
 
         /// <summary>
-        /// Gets a reference to the NozomiAPI
+        /// Gets a reference to the NozomiApiClient
         /// </summary>
-        public NozomiAPI Client { get; private set; }
+        public NozomiApiClient Client { get; private set; }
 
         /// <summary>
         /// Obtain all of the component types that are publicly available or the ones

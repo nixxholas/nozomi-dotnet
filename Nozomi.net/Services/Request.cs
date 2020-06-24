@@ -18,7 +18,7 @@ namespace Nozomi.net.Services
     /// <summary>
     /// Request operations.
     /// </summary>
-    public partial class Request : IServiceOperations<NozomiAPI>, IRequest
+    public partial class Request : IServiceOperations<NozomiApiClient>, IRequest
     {
         /// <summary>
         /// Initializes a new instance of the Request class.
@@ -29,7 +29,7 @@ namespace Nozomi.net.Services
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public Request(NozomiAPI client)
+        public Request(NozomiApiClient client)
         {
             if (client == null)
             {
@@ -39,9 +39,9 @@ namespace Nozomi.net.Services
         }
 
         /// <summary>
-        /// Gets a reference to the NozomiAPI
+        /// Gets a reference to the NozomiApiClient
         /// </summary>
-        public NozomiAPI Client { get; private set; }
+        public NozomiApiClient Client { get; private set; }
 
         /// <summary>
         /// Retrieves all requests owned by the stated user with a pagination of 100

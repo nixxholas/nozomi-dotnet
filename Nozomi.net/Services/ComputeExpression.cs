@@ -18,7 +18,7 @@ namespace Nozomi.net.Services
     /// <summary>
     /// ComputeExpression operations.
     /// </summary>
-    public partial class ComputeExpression : IServiceOperations<NozomiAPI>, IComputeExpression
+    public partial class ComputeExpression : IServiceOperations<NozomiApiClient>, IComputeExpression
     {
         /// <summary>
         /// Initializes a new instance of the ComputeExpression class.
@@ -29,7 +29,7 @@ namespace Nozomi.net.Services
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public ComputeExpression(NozomiAPI client)
+        public ComputeExpression(NozomiApiClient client)
         {
             if (client == null)
             {
@@ -39,9 +39,9 @@ namespace Nozomi.net.Services
         }
 
         /// <summary>
-        /// Gets a reference to the NozomiAPI
+        /// Gets a reference to the NozomiApiClient
         /// </summary>
-        public NozomiAPI Client { get; private set; }
+        public NozomiApiClient Client { get; private set; }
 
         /// <summary>
         /// Obtains all of the relevant compute expressions you own.

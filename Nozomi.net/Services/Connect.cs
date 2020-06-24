@@ -17,7 +17,7 @@ namespace Nozomi.net.Services
     /// <summary>
     /// Connect operations.
     /// </summary>
-    public partial class Connect : IServiceOperations<NozomiAPI>, IConnect
+    public partial class Connect : IServiceOperations<NozomiApiClient>, IConnect
     {
         /// <summary>
         /// Initializes a new instance of the Connect class.
@@ -28,7 +28,7 @@ namespace Nozomi.net.Services
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public Connect(NozomiAPI client)
+        public Connect(NozomiApiClient client)
         {
             if (client == null)
             {
@@ -38,9 +38,9 @@ namespace Nozomi.net.Services
         }
 
         /// <summary>
-        /// Gets a reference to the NozomiAPI
+        /// Gets a reference to the NozomiApiClient
         /// </summary>
-        public NozomiAPI Client { get; private set; }
+        public NozomiApiClient Client { get; private set; }
 
         /// <summary>
         /// Allows the client to validate his API key.

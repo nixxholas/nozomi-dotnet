@@ -18,7 +18,7 @@ namespace Nozomi.net.Services
     /// <summary>
     /// ComponentHistoricItem operations.
     /// </summary>
-    public partial class ComponentHistoricItem : IServiceOperations<NozomiAPI>, IComponentHistoricItem
+    public partial class ComponentHistoricItem : IServiceOperations<NozomiApiClient>, IComponentHistoricItem
     {
         /// <summary>
         /// Initializes a new instance of the ComponentHistoricItem class.
@@ -29,7 +29,7 @@ namespace Nozomi.net.Services
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public ComponentHistoricItem(NozomiAPI client)
+        public ComponentHistoricItem(NozomiApiClient client)
         {
             if (client == null)
             {
@@ -39,9 +39,9 @@ namespace Nozomi.net.Services
         }
 
         /// <summary>
-        /// Gets a reference to the NozomiAPI
+        /// Gets a reference to the NozomiApiClient
         /// </summary>
-        public NozomiAPI Client { get; private set; }
+        public NozomiApiClient Client { get; private set; }
 
         /// <summary>
         /// Obtain all the component historical values created

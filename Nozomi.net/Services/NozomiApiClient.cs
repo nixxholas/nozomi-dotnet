@@ -13,7 +13,7 @@ using Nozomi.net.Constants;
 
 namespace Nozomi.net.Services
 {
-    public partial class NozomiAPI : ServiceClient<NozomiAPI>, INozomiAPI
+    public partial class NozomiApiClient : ServiceClient<NozomiApiClient>, INozomiAPI
     {
         /// <summary>
         /// The base URI of the service.
@@ -96,31 +96,31 @@ namespace Nozomi.net.Services
         public virtual IWebsocketCommandProperty WebsocketCommandProperty { get; private set; }
 
         /// <summary>
-        /// Initializes a new instance of the NozomiAPI class.
+        /// Initializes a new instance of the NozomiApiClient class.
         /// </summary>
         /// <param name='httpClient'>
         /// HttpClient to be used
         /// </param>
         /// <param name='disposeHttpClient'>
-        /// True: will dispose the provided httpClient on calling NozomiAPI.Dispose(). False: will not dispose provided httpClient</param>
-        public NozomiAPI(HttpClient httpClient, bool disposeHttpClient) : base(httpClient, disposeHttpClient)
+        /// True: will dispose the provided httpClient on calling NozomiApiClient.Dispose(). False: will not dispose provided httpClient</param>
+        public NozomiApiClient(HttpClient httpClient, bool disposeHttpClient) : base(httpClient, disposeHttpClient)
         {
             Initialize();
         }
 
         /// <summary>
-        /// Initializes a new instance of the NozomiAPI class.
+        /// Initializes a new instance of the NozomiApiClient class.
         /// </summary>
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        public NozomiAPI(params DelegatingHandler[] handlers) : base(handlers)
+        public NozomiApiClient(params DelegatingHandler[] handlers) : base(handlers)
         {
             Initialize();
         }
 
         /// <summary>
-        /// Initializes a new instance of the NozomiAPI class.
+        /// Initializes a new instance of the NozomiApiClient class.
         /// </summary>
         /// <param name='rootHandler'>
         /// Optional. The http client handler used to handle http transport.
@@ -128,7 +128,7 @@ namespace Nozomi.net.Services
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        public NozomiAPI(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) 
+        public NozomiApiClient(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) 
             : base(rootHandler, handlers)
         {
             Initialize();

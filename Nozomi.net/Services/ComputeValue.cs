@@ -18,7 +18,7 @@ namespace Nozomi.net.Services
     /// <summary>
     /// ComputeValue operations.
     /// </summary>
-    public partial class ComputeValue : IServiceOperations<NozomiAPI>, IComputeValue
+    public partial class ComputeValue : IServiceOperations<NozomiApiClient>, IComputeValue
     {
         /// <summary>
         /// Initializes a new instance of the ComputeValue class.
@@ -29,7 +29,7 @@ namespace Nozomi.net.Services
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public ComputeValue(NozomiAPI client)
+        public ComputeValue(NozomiApiClient client)
         {
             if (client == null)
             {
@@ -39,9 +39,9 @@ namespace Nozomi.net.Services
         }
 
         /// <summary>
-        /// Gets a reference to the NozomiAPI
+        /// Gets a reference to the NozomiApiClient
         /// </summary>
-        public NozomiAPI Client { get; private set; }
+        public NozomiApiClient Client { get; private set; }
 
         /// <summary>
         /// Obtain all compute value generated.

@@ -18,7 +18,7 @@ namespace Nozomi.net.Services
     /// <summary>
     /// WebsocketCommand operations.
     /// </summary>
-    public partial class WebsocketCommand : IServiceOperations<NozomiAPI>, IWebsocketCommand
+    public partial class WebsocketCommand : IServiceOperations<NozomiApiClient>, IWebsocketCommand
     {
         /// <summary>
         /// Initializes a new instance of the WebsocketCommand class.
@@ -29,7 +29,7 @@ namespace Nozomi.net.Services
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public WebsocketCommand(NozomiAPI client)
+        public WebsocketCommand(NozomiApiClient client)
         {
             if (client == null)
             {
@@ -39,9 +39,9 @@ namespace Nozomi.net.Services
         }
 
         /// <summary>
-        /// Gets a reference to the NozomiAPI
+        /// Gets a reference to the NozomiApiClient
         /// </summary>
-        public NozomiAPI Client { get; private set; }
+        public NozomiApiClient Client { get; private set; }
 
         /// <summary>
         /// Obtain all websocket commands you have created/own.

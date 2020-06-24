@@ -18,7 +18,7 @@ namespace Nozomi.net.Services
     /// <summary>
     /// RequestProperty operations.
     /// </summary>
-    public partial class RequestProperty : IServiceOperations<NozomiAPI>, IRequestProperty
+    public partial class RequestProperty : IServiceOperations<NozomiApiClient>, IRequestProperty
     {
         /// <summary>
         /// Initializes a new instance of the RequestProperty class.
@@ -29,7 +29,7 @@ namespace Nozomi.net.Services
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public RequestProperty(NozomiAPI client)
+        public RequestProperty(NozomiApiClient client)
         {
             if (client == null)
             {
@@ -39,9 +39,9 @@ namespace Nozomi.net.Services
         }
 
         /// <summary>
-        /// Gets a reference to the NozomiAPI
+        /// Gets a reference to the NozomiApiClient
         /// </summary>
-        public NozomiAPI Client { get; private set; }
+        public NozomiApiClient Client { get; private set; }
 
         /// <summary>
         /// Obtain all request properties you have created/own.
