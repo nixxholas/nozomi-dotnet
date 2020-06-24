@@ -3,7 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http.Headers;
 
-namespace Nozomi.net.Infrastructure.Public
+namespace Nozomi.net.Base
 {
     /// <summary>
     /// Represents a response from Nozomi's API.
