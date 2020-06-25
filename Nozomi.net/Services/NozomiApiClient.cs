@@ -142,7 +142,12 @@ namespace Nozomi.net.Services
         /// <summary>
         /// An optional partial-method to perform custom initialization.
         ///</summary>
-        partial void CustomInitialize();
+        private void CustomInitialize()
+        {
+            // Initialise the response message first.
+            HttpResponseMessage = new HttpResponseMessage();
+        }
+        
         /// <summary>
         /// Initializes client properties.
         /// </summary>
