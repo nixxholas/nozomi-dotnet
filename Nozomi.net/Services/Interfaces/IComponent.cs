@@ -14,7 +14,7 @@ namespace Nozomi.net
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Component operations.
+    /// ComponentService operations.
     /// </summary>
     public partial interface IComponent
     {

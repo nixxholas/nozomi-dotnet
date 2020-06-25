@@ -153,7 +153,7 @@ namespace Nozomi.net.Services
         /// </summary>
         private void Initialize()
         {
-            Component = new Component(this);
+            Component = new ComponentService(this);
             ComponentHistoricItem = new ComponentHistoricItem(this);
             ComponentType = new ComponentType(this);
             Compute = new Compute(this);

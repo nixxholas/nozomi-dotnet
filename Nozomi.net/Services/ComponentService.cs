@@ -16,12 +16,12 @@ using Nozomi.net.Models;
 namespace Nozomi.net.Services
 {
     /// <summary>
-    /// Component operations.
+    /// ComponentService operations.
     /// </summary>
-    public partial class Component : IServiceOperations<NozomiApiClient>, IComponent
+    public partial class ComponentService : IServiceOperations<NozomiApiClient>, IComponent
     {
         /// <summary>
-        /// Initializes a new instance of the Component class.
+        /// Initializes a new instance of the ComponentService class.
         /// </summary>
         /// <param name='client'>
         /// Reference to the service client.
@@ -29,7 +29,7 @@ namespace Nozomi.net.Services
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public Component(NozomiApiClient client)
+        public ComponentService(NozomiApiClient client)
         {
             if (client == null)
             {
@@ -93,7 +93,7 @@ namespace Nozomi.net.Services
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "Component/All/{requestGuid}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ComponentService/All/{requestGuid}").ToString();
             _url = _url.Replace("{requestGuid}", System.Uri.EscapeDataString(requestGuid));
             List<string> _queryParameters = new List<string>();
             if (index != null)
@@ -263,7 +263,7 @@ namespace Nozomi.net.Services
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "Component/Create").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ComponentService/Create").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -429,7 +429,7 @@ namespace Nozomi.net.Services
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "Component/Delete").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ComponentService/Delete").ToString();
             List<string> _queryParameters = new List<string>();
             if (guid != null)
             {
@@ -612,7 +612,7 @@ namespace Nozomi.net.Services
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "Component/Get/{guid}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ComponentService/Get/{guid}").ToString();
             _url = _url.Replace("{guid}", System.Uri.EscapeDataString(guid));
             List<string> _queryParameters = new List<string>();
             if (index != null)
@@ -782,7 +782,7 @@ namespace Nozomi.net.Services
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "Component/Update").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ComponentService/Update").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;

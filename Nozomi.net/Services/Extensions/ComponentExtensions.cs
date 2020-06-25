@@ -11,7 +11,7 @@ namespace Nozomi.net
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Extension methods for Component.
+    /// Extension methods for ComponentService.
     /// </summary>
     public static partial class ComponentExtensions
     {
