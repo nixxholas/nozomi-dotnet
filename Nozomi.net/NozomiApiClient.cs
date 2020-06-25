@@ -218,6 +218,8 @@ namespace Nozomi.net
             Dictionary<string, List<string>> customHeaders = null, 
             CancellationToken cancellationToken = default(CancellationToken))
         {
+            Initialize(); // Always re-initialise
+            
             // Tracing
             if (tracingParameters == null) tracingParameters = new Dictionary<string, object>(); // Null handling
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
