@@ -159,7 +159,7 @@ namespace Nozomi.net.Services
             Compute = new ComputeService(this);
             ComputeExpression = new ComputeExpression(this);
             ComputeValue = new ComputeValueService(this);
-            Connect = new Connect(this);
+            Connect = new ConnectService(this);
             Item = new Item(this);
             Request = new Request(this);
             RequestProperty = new RequestProperty(this);

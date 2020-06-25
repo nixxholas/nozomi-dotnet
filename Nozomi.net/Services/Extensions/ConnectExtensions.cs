@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Nozomi.net.Services.Extensions
 {
     /// <summary>
-    /// Extension methods for Connect.
+    /// Extension methods for ConnectService.
     /// </summary>
     public static partial class ConnectExtensions
     {

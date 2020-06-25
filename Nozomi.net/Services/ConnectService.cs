@@ -15,12 +15,12 @@ using Newtonsoft.Json;
 namespace Nozomi.net.Services
 {
     /// <summary>
-    /// Connect operations.
+    /// ConnectService operations.
     /// </summary>
-    public partial class Connect : IServiceOperations<NozomiApiClient>, IConnect
+    public partial class ConnectService : IServiceOperations<NozomiApiClient>, IConnect
     {
         /// <summary>
-        /// Initializes a new instance of the Connect class.
+        /// Initializes a new instance of the ConnectService class.
         /// </summary>
         /// <param name='client'>
         /// Reference to the service client.
@@ -28,7 +28,7 @@ namespace Nozomi.net.Services
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public Connect(NozomiApiClient client)
+        public ConnectService(NozomiApiClient client)
         {
             if (client == null)
             {
@@ -74,7 +74,7 @@ namespace Nozomi.net.Services
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "Connect/Validate").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ConnectService/Validate").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
