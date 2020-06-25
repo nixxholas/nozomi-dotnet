@@ -155,7 +155,7 @@ namespace Nozomi.net.Services
         {
             Component = new ComponentService(this);
             ComponentHistoricItem = new ComponentHistoricItemService(this);
-            ComponentType = new ComponentType(this);
+            ComponentType = new ComponentTypeService(this);
             Compute = new Compute(this);
             ComputeExpression = new ComputeExpression(this);
             ComputeValue = new ComputeValue(this);

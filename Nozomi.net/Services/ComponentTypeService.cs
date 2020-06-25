@@ -16,12 +16,12 @@ using Nozomi.net.Models;
 namespace Nozomi.net.Services
 {
     /// <summary>
-    /// ComponentType operations.
+    /// ComponentTypeService operations.
     /// </summary>
-    public partial class ComponentType : IServiceOperations<NozomiApiClient>, IComponentType
+    public partial class ComponentTypeService : IServiceOperations<NozomiApiClient>, IComponentType
     {
         /// <summary>
-        /// Initializes a new instance of the ComponentType class.
+        /// Initializes a new instance of the ComponentTypeService class.
         /// </summary>
         /// <param name='client'>
         /// Reference to the service client.
@@ -29,7 +29,7 @@ namespace Nozomi.net.Services
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public ComponentType(NozomiApiClient client)
+        public ComponentTypeService(NozomiApiClient client)
         {
             if (client == null)
             {
@@ -80,7 +80,7 @@ namespace Nozomi.net.Services
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ComponentType/All").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ComponentTypeService/All").ToString();
             List<string> _queryParameters = new List<string>();
             if (index != null)
             {

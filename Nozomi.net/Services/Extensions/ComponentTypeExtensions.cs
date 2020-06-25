@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Nozomi.net.Services.Extensions
 {
     /// <summary>
-    /// Extension methods for ComponentType.
+    /// Extension methods for ComponentTypeService.
     /// </summary>
     public static partial class ComponentTypeExtensions
     {
