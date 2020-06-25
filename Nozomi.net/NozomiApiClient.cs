@@ -123,6 +123,7 @@ namespace Nozomi.net
         {
             ApiKey = apiKey;
             Initialize();
+            InitializeServices();
         }
 
         /// <summary>
@@ -139,6 +140,7 @@ namespace Nozomi.net
         {
             ApiKey = apiKey;
             Initialize();
+            InitializeServices();
         }
 
         /// <summary>
@@ -155,6 +157,24 @@ namespace Nozomi.net
         {
             ApiKey = apiKey;
             Initialize();
+            InitializeServices();
+        }
+
+        private void InitializeServices()
+        {
+            ComponentService = new ComponentService(this);
+            ComponentHistoricItemService = new ComponentHistoricItemService(this);
+            ComponentTypeService = new ComponentTypeService(this);
+            ComputeService = new ComputeService(this);
+            ComputeExpressionService = new ComputeExpressionService(this);
+            ComputeValueService = new ComputeValueService(this);
+            ConnectService = new ConnectService(this);
+            ItemService = new ItemService(this);
+            RequestService = new RequestService(this);
+            RequestPropertyService = new RequestPropertyService(this);
+            SubComputeService = new SubComputeService(this);
+            WebsocketCommandService = new WebsocketCommandService(this);
+            WebsocketCommandPropertyService = new WebsocketCommandPropertyService(this);
         }
 
         /// <summary>
@@ -171,19 +191,6 @@ namespace Nozomi.net
         /// </summary>
         private void Initialize()
         {
-            ComponentService = new ComponentService(this);
-            ComponentHistoricItemService = new ComponentHistoricItemService(this);
-            ComponentTypeService = new ComponentTypeService(this);
-            ComputeService = new ComputeService(this);
-            ComputeExpressionService = new ComputeExpressionService(this);
-            ComputeValueService = new ComputeValueService(this);
-            ConnectService = new ConnectService(this);
-            ItemService = new ItemService(this);
-            RequestService = new RequestService(this);
-            RequestPropertyService = new RequestPropertyService(this);
-            SubComputeService = new SubComputeService(this);
-            WebsocketCommandService = new WebsocketCommandService(this);
-            WebsocketCommandPropertyService = new WebsocketCommandPropertyService(this);
             BaseUri = new System.Uri(NozomiConstants.ApiBaseUrl);
             SerializationSettings = new JsonSerializerSettings
             {
