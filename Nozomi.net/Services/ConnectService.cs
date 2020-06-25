@@ -95,9 +95,9 @@ namespace Nozomi.net.Services
                 }
             }
 
-            // Serialize Request
+            // Serialize RequestService
             string _requestContent = null;
-            // Send Request
+            // Send RequestService
             if (_shouldTrace)
             {
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);

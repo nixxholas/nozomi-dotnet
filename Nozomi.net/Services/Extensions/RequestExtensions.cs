@@ -11,7 +11,7 @@ namespace Nozomi.net
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Extension methods for Request.
+    /// Extension methods for RequestService.
     /// </summary>
     public static partial class RequestExtensions
     {

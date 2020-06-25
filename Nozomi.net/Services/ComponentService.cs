@@ -124,9 +124,9 @@ namespace Nozomi.net.Services
                 }
             }
 
-            // Serialize Request
+            // Serialize RequestService
             string _requestContent = null;
-            // Send Request
+            // Send RequestService
             if (_shouldTrace)
             {
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
@@ -284,7 +284,7 @@ namespace Nozomi.net.Services
                 }
             }
 
-            // Serialize Request
+            // Serialize RequestService
             string _requestContent = null;
             if(body != null)
             {
@@ -292,7 +292,7 @@ namespace Nozomi.net.Services
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
-            // Send Request
+            // Send RequestService
             if (_shouldTrace)
             {
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
@@ -459,9 +459,9 @@ namespace Nozomi.net.Services
                 }
             }
 
-            // Serialize Request
+            // Serialize RequestService
             string _requestContent = null;
-            // Send Request
+            // Send RequestService
             if (_shouldTrace)
             {
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
@@ -643,9 +643,9 @@ namespace Nozomi.net.Services
                 }
             }
 
-            // Serialize Request
+            // Serialize RequestService
             string _requestContent = null;
-            // Send Request
+            // Send RequestService
             if (_shouldTrace)
             {
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
@@ -803,7 +803,7 @@ namespace Nozomi.net.Services
                 }
             }
 
-            // Serialize Request
+            // Serialize RequestService
             string _requestContent = null;
             if(body != null)
             {
@@ -811,7 +811,7 @@ namespace Nozomi.net.Services
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
-            // Send Request
+            // Send RequestService
             if (_shouldTrace)
             {
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);

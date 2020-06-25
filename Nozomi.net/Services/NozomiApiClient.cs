@@ -161,7 +161,7 @@ namespace Nozomi.net.Services
             ComputeValue = new ComputeValueService(this);
             Connect = new ConnectService(this);
             Item = new ItemService(this);
-            Request = new Request(this);
+            Request = new RequestService(this);
             RequestProperty = new RequestProperty(this);
             SubCompute = new SubCompute(this);
             WebsocketCommand = new WebsocketCommand(this);

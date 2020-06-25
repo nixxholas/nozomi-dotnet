@@ -14,7 +14,7 @@ namespace Nozomi.net
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Request operations.
+    /// RequestService operations.
     /// </summary>
     public partial interface IRequest
     {
