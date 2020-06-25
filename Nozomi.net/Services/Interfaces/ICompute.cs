@@ -14,7 +14,7 @@ namespace Nozomi.net
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Compute operations.
+    /// ComputeService operations.
     /// </summary>
     public partial interface ICompute
     {
