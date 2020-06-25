@@ -10,8 +10,9 @@ using Microsoft.Rest;
 using Microsoft.Rest.Serialization;
 using Newtonsoft.Json;
 using Nozomi.net.Constants;
+using Nozomi.net.Services;
 
-namespace Nozomi.net.Services
+namespace Nozomi.net
 {
     public partial class NozomiApiClient : ServiceClient<NozomiApiClient>, INozomiAPI
     {
