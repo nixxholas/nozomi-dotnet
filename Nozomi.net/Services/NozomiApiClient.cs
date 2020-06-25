@@ -163,7 +163,7 @@ namespace Nozomi.net.Services
             Item = new ItemService(this);
             Request = new RequestService(this);
             RequestProperty = new RequestProperty(this);
-            SubCompute = new SubCompute(this);
+            SubCompute = new SubComputeService(this);
             WebsocketCommand = new WebsocketCommand(this);
             WebsocketCommandProperty = new WebsocketCommandProperty(this);
             BaseUri = new System.Uri(NozomiConstants.ApiBaseUrl);

@@ -16,12 +16,12 @@ using Nozomi.net.Models;
 namespace Nozomi.net.Services
 {
     /// <summary>
-    /// SubCompute operations.
+    /// SubComputeService operations.
     /// </summary>
-    public partial class SubCompute : IServiceOperations<NozomiApiClient>, ISubCompute
+    public partial class SubComputeService : IServiceOperations<NozomiApiClient>, ISubCompute
     {
         /// <summary>
-        /// Initializes a new instance of the SubCompute class.
+        /// Initializes a new instance of the SubComputeService class.
         /// </summary>
         /// <param name='client'>
         /// Reference to the service client.
@@ -29,7 +29,7 @@ namespace Nozomi.net.Services
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public SubCompute(NozomiApiClient client)
+        public SubComputeService(NozomiApiClient client)
         {
             if (client == null)
             {
@@ -79,7 +79,7 @@ namespace Nozomi.net.Services
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "SubCompute/All/{index}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "SubComputeService/All/{index}").ToString();
             _url = _url.Replace("{index}", System.Uri.EscapeDataString(Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(index, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -254,7 +254,7 @@ namespace Nozomi.net.Services
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "SubCompute/AllByParent/{parentComputeGuid}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "SubComputeService/AllByParent/{parentComputeGuid}").ToString();
             _url = _url.Replace("{parentComputeGuid}", System.Uri.EscapeDataString(parentComputeGuid));
             List<string> _queryParameters = new List<string>();
             if (index != null)
@@ -438,7 +438,7 @@ namespace Nozomi.net.Services
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "SubCompute/AllByChild/{childComputeGuid}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "SubComputeService/AllByChild/{childComputeGuid}").ToString();
             _url = _url.Replace("{childComputeGuid}", System.Uri.EscapeDataString(childComputeGuid));
             List<string> _queryParameters = new List<string>();
             if (index != null)
@@ -612,7 +612,7 @@ namespace Nozomi.net.Services
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "SubCompute/Get").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "SubComputeService/Get").ToString();
             List<string> _queryParameters = new List<string>();
             if (parentComputeGuid != null)
             {

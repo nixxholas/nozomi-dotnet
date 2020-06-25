@@ -11,7 +11,7 @@ namespace Nozomi.net
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Extension methods for SubCompute.
+    /// Extension methods for SubComputeService.
     /// </summary>
     public static partial class SubComputeExtensions
     {

@@ -14,7 +14,7 @@ namespace Nozomi.net
     using System.Threading.Tasks;
 
     /// <summary>
-    /// SubCompute operations.
+    /// SubComputeService operations.
     /// </summary>
     public partial interface ISubCompute
     {
