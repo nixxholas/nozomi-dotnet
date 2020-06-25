@@ -20,6 +20,11 @@ namespace Nozomi.net
         /// The base URI of the service.
         /// </summary>
         public System.Uri BaseUri { get; set; }
+        
+        /// <summary>
+        /// The API Key issued by Nozomi for usage.
+        /// </summary>
+        public string ApiKey { get; set; }
 
         /// <summary>
         /// Gets or sets json serialization settings.
@@ -104,24 +109,28 @@ namespace Nozomi.net
         /// <summary>
         /// Initializes a new instance of the NozomiApiClient class.
         /// </summary>
-        /// <param name='httpClient'>
-        /// HttpClient to be used
+        /// <param name='handlers'>
+        /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        /// <param name='disposeHttpClient'>
-        /// True: will dispose the provided httpClient on calling NozomiApiClient.Dispose(). False: will not dispose provided httpClient</param>
-        public NozomiApiClient(HttpClient httpClient, bool disposeHttpClient) : base(httpClient, disposeHttpClient)
+        public NozomiApiClient(string apiKey, params DelegatingHandler[] handlers) : base(handlers)
         {
+            ApiKey = apiKey;
             Initialize();
         }
 
         /// <summary>
         /// Initializes a new instance of the NozomiApiClient class.
         /// </summary>
-        /// <param name='handlers'>
-        /// Optional. The delegating handlers to add to the http client pipeline.
+        /// <param name='httpClient'>
+        /// HttpClient to be used
         /// </param>
-        public NozomiApiClient(params DelegatingHandler[] handlers) : base(handlers)
+        /// <param name='disposeHttpClient'>
+        /// True: will dispose the provided httpClient on calling NozomiApiClient.Dispose().
+        /// False: will not dispose provided httpClient</param>
+        public NozomiApiClient(string apiKey, HttpClient httpClient, bool disposeHttpClient) 
+            : base(httpClient, disposeHttpClient)
         {
+            ApiKey = apiKey;
             Initialize();
         }
 
@@ -134,9 +143,10 @@ namespace Nozomi.net
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        public NozomiApiClient(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) 
+        public NozomiApiClient(string apiKey, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) 
             : base(rootHandler, handlers)
         {
+            ApiKey = apiKey;
             Initialize();
         }
 

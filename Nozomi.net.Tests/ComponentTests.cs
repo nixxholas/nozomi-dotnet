@@ -8,7 +8,7 @@ namespace Nozomi.net.Tests
         [SetUp]
         public void Setup()
         {
-            var nozomiApi = new NozomiApiClient();
+            var nozomiApi = new NozomiApiClient("");
         }
 
         [Test]
