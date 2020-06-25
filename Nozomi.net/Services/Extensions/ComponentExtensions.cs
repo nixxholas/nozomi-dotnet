@@ -47,9 +47,11 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GETAsync(this IComponentService operations, string requestGuid, int? index = 0, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GETAsync(this IComponentService operations, string requestGuid, 
+                int? index = 0, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GETWithHttpMessagesAsync(requestGuid, index, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations
+                    .All(requestGuid, index, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

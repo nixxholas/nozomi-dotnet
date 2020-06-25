@@ -27,9 +27,6 @@ namespace Nozomi.net
         /// <param name='index'>
         /// The 'page' of the list of results in 100s
         /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
@@ -42,7 +39,8 @@ namespace Nozomi.net
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> GETWithHttpMessagesAsync(string requestGuid, int? index = 0, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> All(string requestGuid, int? index = 0, 
+            CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Create a component.
         /// </summary>
