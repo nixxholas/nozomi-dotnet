@@ -16,12 +16,12 @@ using Nozomi.net.Models;
 namespace Nozomi.net.Services
 {
     /// <summary>
-    /// ComputeValue operations.
+    /// ComputeValueService operations.
     /// </summary>
-    public partial class ComputeValue : IServiceOperations<NozomiApiClient>, IComputeValue
+    public partial class ComputeValueService : IServiceOperations<NozomiApiClient>, IComputeValue
     {
         /// <summary>
-        /// Initializes a new instance of the ComputeValue class.
+        /// Initializes a new instance of the ComputeValueService class.
         /// </summary>
         /// <param name='client'>
         /// Reference to the service client.
@@ -29,7 +29,7 @@ namespace Nozomi.net.Services
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public ComputeValue(NozomiApiClient client)
+        public ComputeValueService(NozomiApiClient client)
         {
             if (client == null)
             {
@@ -83,7 +83,7 @@ namespace Nozomi.net.Services
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ComputeValue/All/{index}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ComputeValueService/All/{index}").ToString();
             _url = _url.Replace("{index}", System.Uri.EscapeDataString(Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(index, Client.SerializationSettings).Trim('"')));
             List<string> _queryParameters = new List<string>();
             if (computeGuid != null)
@@ -263,7 +263,7 @@ namespace Nozomi.net.Services
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ComputeValue/Get/{guid}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ComputeValueService/Get/{guid}").ToString();
             _url = _url.Replace("{guid}", System.Uri.EscapeDataString(guid));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -434,7 +434,7 @@ namespace Nozomi.net.Services
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ComputeValue/Last/{computeGuid}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ComputeValueService/Last/{computeGuid}").ToString();
             _url = _url.Replace("{computeGuid}", System.Uri.EscapeDataString(computeGuid));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();

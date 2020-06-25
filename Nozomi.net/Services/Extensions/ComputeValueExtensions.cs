@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Nozomi.net.Services.Extensions
 {
     /// <summary>
-    /// Extension methods for ComputeValue.
+    /// Extension methods for ComputeValueService.
     /// </summary>
     public static partial class ComputeValueExtensions
     {

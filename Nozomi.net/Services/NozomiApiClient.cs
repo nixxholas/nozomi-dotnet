@@ -158,7 +158,7 @@ namespace Nozomi.net.Services
             ComponentType = new ComponentTypeService(this);
             Compute = new ComputeService(this);
             ComputeExpression = new ComputeExpression(this);
-            ComputeValue = new ComputeValue(this);
+            ComputeValue = new ComputeValueService(this);
             Connect = new Connect(this);
             Item = new Item(this);
             Request = new Request(this);

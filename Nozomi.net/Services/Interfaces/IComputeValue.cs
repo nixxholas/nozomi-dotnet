@@ -14,7 +14,7 @@ namespace Nozomi.net
     using System.Threading.Tasks;
 
     /// <summary>
-    /// ComputeValue operations.
+    /// ComputeValueService operations.
     /// </summary>
     public partial interface IComputeValue
     {
