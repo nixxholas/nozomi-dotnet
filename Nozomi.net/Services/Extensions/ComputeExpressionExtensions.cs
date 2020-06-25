@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Nozomi.net.Services.Extensions
 {
     /// <summary>
-    /// Extension methods for ComputeExpression.
+    /// Extension methods for ComputeExpressionService.
     /// </summary>
     public static partial class ComputeExpressionExtensions
     {
@@ -26,7 +26,7 @@ namespace Nozomi.net.Services.Extensions
             /// <param name='computeGuid'>
             /// Filter by the compute if needed.
             /// </param>
-            public static object GET(this IComputeExpression operations, int index, string computeGuid = default(string))
+            public static object GET(this IComputeExpressionService operations, int index, string computeGuid = default(string))
             {
                 return operations.GETAsync(index, computeGuid).GetAwaiter().GetResult();
             }
@@ -46,7 +46,7 @@ namespace Nozomi.net.Services.Extensions
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GETAsync(this IComputeExpression operations, int index, string computeGuid = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GETAsync(this IComputeExpressionService operations, int index, string computeGuid = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GETWithHttpMessagesAsync(index, computeGuid, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -63,7 +63,7 @@ namespace Nozomi.net.Services.Extensions
             /// <param name='guid'>
             /// The Guid of the compute expression in question.
             /// </param>
-            public static object GET1(this IComputeExpression operations, string guid)
+            public static object GET1(this IComputeExpressionService operations, string guid)
             {
                 return operations.GET1Async(guid).GetAwaiter().GetResult();
             }
@@ -80,7 +80,7 @@ namespace Nozomi.net.Services.Extensions
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GET1Async(this IComputeExpression operations, string guid, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GET1Async(this IComputeExpressionService operations, string guid, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GET1WithHttpMessagesAsync(guid, null, cancellationToken).ConfigureAwait(false))
                 {

@@ -18,7 +18,7 @@ namespace Nozomi.net.Services
     /// <summary>
     /// ComputeValueService operations.
     /// </summary>
-    public partial class ComputeValueService : IServiceOperations<NozomiApiClient>, IComputeValue
+    public partial class ComputeValueService : IServiceOperations<NozomiApiClient>, IComputeValueService
     {
         /// <summary>
         /// Initializes a new instance of the ComputeValueService class.

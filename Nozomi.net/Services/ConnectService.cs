@@ -17,7 +17,7 @@ namespace Nozomi.net.Services
     /// <summary>
     /// ConnectService operations.
     /// </summary>
-    public partial class ConnectService : IServiceOperations<NozomiApiClient>, IConnect
+    public partial class ConnectService : IServiceOperations<NozomiApiClient>, IConnectService
     {
         /// <summary>
         /// Initializes a new instance of the ConnectService class.

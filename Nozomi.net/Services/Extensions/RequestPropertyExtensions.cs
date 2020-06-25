@@ -11,7 +11,7 @@ namespace Nozomi.net
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Extension methods for RequestProperty.
+    /// Extension methods for RequestPropertyService.
     /// </summary>
     public static partial class RequestPropertyExtensions
     {
@@ -24,7 +24,7 @@ namespace Nozomi.net
             /// <param name='index'>
             /// The 'page' of the list of results in 100s.
             /// </param>
-            public static object GET(this IRequestProperty operations, int? index = 0)
+            public static object GET(this IRequestPropertyService operations, int? index = 0)
             {
                 return operations.GETAsync(index).GetAwaiter().GetResult();
             }
@@ -41,7 +41,7 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GETAsync(this IRequestProperty operations, int? index = 0, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GETAsync(this IRequestPropertyService operations, int? index = 0, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GETWithHttpMessagesAsync(index, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -62,7 +62,7 @@ namespace Nozomi.net
             /// <param name='index'>
             /// The 'page' of the list of results in 100s.
             /// </param>
-            public static object GET1(this IRequestProperty operations, string requestGuid = default(string), int? index = 0)
+            public static object GET1(this IRequestPropertyService operations, string requestGuid = default(string), int? index = 0)
             {
                 return operations.GET1Async(requestGuid, index).GetAwaiter().GetResult();
             }
@@ -83,7 +83,7 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GET1Async(this IRequestProperty operations, string requestGuid = default(string), int? index = 0, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GET1Async(this IRequestPropertyService operations, string requestGuid = default(string), int? index = 0, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GET1WithHttpMessagesAsync(requestGuid, index, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -100,7 +100,7 @@ namespace Nozomi.net
             /// <param name='body'>
             /// The supposed properties/parameters of the request property.
             /// </param>
-            public static string POST(this IRequestProperty operations, CreateRequestPropertyInputModel body = default(CreateRequestPropertyInputModel))
+            public static string POST(this IRequestPropertyService operations, CreateRequestPropertyInputModel body = default(CreateRequestPropertyInputModel))
             {
                 return operations.POSTAsync(body).GetAwaiter().GetResult();
             }
@@ -117,7 +117,7 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> POSTAsync(this IRequestProperty operations, CreateRequestPropertyInputModel body = default(CreateRequestPropertyInputModel), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> POSTAsync(this IRequestPropertyService operations, CreateRequestPropertyInputModel body = default(CreateRequestPropertyInputModel), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.POSTWithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -134,7 +134,7 @@ namespace Nozomi.net
             /// <param name='guid'>
             /// The unique identifier of the deletion attempt.
             /// </param>
-            public static string DELETE(this IRequestProperty operations, string guid)
+            public static string DELETE(this IRequestPropertyService operations, string guid)
             {
                 return operations.DELETEAsync(guid).GetAwaiter().GetResult();
             }
@@ -151,7 +151,7 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> DELETEAsync(this IRequestProperty operations, string guid, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> DELETEAsync(this IRequestPropertyService operations, string guid, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.DELETEWithHttpMessagesAsync(guid, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -168,7 +168,7 @@ namespace Nozomi.net
             /// <param name='body'>
             /// The supposed properties/parameters of the request property.
             /// </param>
-            public static string PUT(this IRequestProperty operations, UpdateRequestPropertyInputModel body = default(UpdateRequestPropertyInputModel))
+            public static string PUT(this IRequestPropertyService operations, UpdateRequestPropertyInputModel body = default(UpdateRequestPropertyInputModel))
             {
                 return operations.PUTAsync(body).GetAwaiter().GetResult();
             }
@@ -185,7 +185,7 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> PUTAsync(this IRequestProperty operations, UpdateRequestPropertyInputModel body = default(UpdateRequestPropertyInputModel), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> PUTAsync(this IRequestPropertyService operations, UpdateRequestPropertyInputModel body = default(UpdateRequestPropertyInputModel), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.PUTWithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {

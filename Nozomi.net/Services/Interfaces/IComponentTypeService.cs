@@ -14,13 +14,17 @@ namespace Nozomi.net
     using System.Threading.Tasks;
 
     /// <summary>
-    /// ConnectService operations.
+    /// ComponentTypeService operations.
     /// </summary>
-    public partial interface IConnect
+    public partial interface IComponentTypeService
     {
         /// <summary>
-        /// Allows the client to validate his API key.
+        /// Obtain all of the component types that are publicly available or
+        /// the ones that you own.
         /// </summary>
+        /// <param name='index'>
+        /// the 'page' of the list of results in 50s.
+        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
@@ -33,6 +37,6 @@ namespace Nozomi.net
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<string>> HEADWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> GETWithHttpMessagesAsync(int? index = 0, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

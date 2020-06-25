@@ -27,7 +27,7 @@ namespace Nozomi.net
             /// <param name='index'>
             /// The 'page' of the list of results in 100s
             /// </param>
-            public static object GET(this IComponent operations, string requestGuid, int? index = 0)
+            public static object GET(this IComponentService operations, string requestGuid, int? index = 0)
             {
                 return operations.GETAsync(requestGuid, index).GetAwaiter().GetResult();
             }
@@ -47,7 +47,7 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GETAsync(this IComponent operations, string requestGuid, int? index = 0, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GETAsync(this IComponentService operations, string requestGuid, int? index = 0, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GETWithHttpMessagesAsync(requestGuid, index, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -64,7 +64,7 @@ namespace Nozomi.net
             /// <param name='body'>
             /// The supposed properties/parameters of the component.
             /// </param>
-            public static string POST(this IComponent operations, CreateComponentInputModel body = default(CreateComponentInputModel))
+            public static string POST(this IComponentService operations, CreateComponentInputModel body = default(CreateComponentInputModel))
             {
                 return operations.POSTAsync(body).GetAwaiter().GetResult();
             }
@@ -81,7 +81,7 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> POSTAsync(this IComponent operations, CreateComponentInputModel body = default(CreateComponentInputModel), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> POSTAsync(this IComponentService operations, CreateComponentInputModel body = default(CreateComponentInputModel), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.POSTWithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -98,7 +98,7 @@ namespace Nozomi.net
             /// <param name='guid'>
             /// The unique identifier of the component to delete.
             /// </param>
-            public static string DELETE(this IComponent operations, string guid = default(string))
+            public static string DELETE(this IComponentService operations, string guid = default(string))
             {
                 return operations.DELETEAsync(guid).GetAwaiter().GetResult();
             }
@@ -115,7 +115,7 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> DELETEAsync(this IComponent operations, string guid = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> DELETEAsync(this IComponentService operations, string guid = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.DELETEWithHttpMessagesAsync(guid, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -135,7 +135,7 @@ namespace Nozomi.net
             /// <param name='index'>
             /// The 'page' of the list of historical values in 100s
             /// </param>
-            public static object GET1(this IComponent operations, string guid, int? index = 0)
+            public static object GET1(this IComponentService operations, string guid, int? index = 0)
             {
                 return operations.GET1Async(guid, index).GetAwaiter().GetResult();
             }
@@ -155,7 +155,7 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GET1Async(this IComponent operations, string guid, int? index = 0, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GET1Async(this IComponentService operations, string guid, int? index = 0, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GET1WithHttpMessagesAsync(guid, index, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -172,7 +172,7 @@ namespace Nozomi.net
             /// <param name='body'>
             /// The supposed properties/parameters of the component.
             /// </param>
-            public static string PUT(this IComponent operations, UpdateComponentInputModel body = default(UpdateComponentInputModel))
+            public static string PUT(this IComponentService operations, UpdateComponentInputModel body = default(UpdateComponentInputModel))
             {
                 return operations.PUTAsync(body).GetAwaiter().GetResult();
             }
@@ -189,7 +189,7 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> PUTAsync(this IComponent operations, UpdateComponentInputModel body = default(UpdateComponentInputModel), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> PUTAsync(this IComponentService operations, UpdateComponentInputModel body = default(UpdateComponentInputModel), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.PUTWithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {

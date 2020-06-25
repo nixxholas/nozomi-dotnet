@@ -18,7 +18,7 @@ namespace Nozomi.net.Services
     /// <summary>
     /// ComponentTypeService operations.
     /// </summary>
-    public partial class ComponentTypeService : IServiceOperations<NozomiApiClient>, IComponentType
+    public partial class ComponentTypeService : IServiceOperations<NozomiApiClient>, IComponentTypeService
     {
         /// <summary>
         /// Initializes a new instance of the ComponentTypeService class.

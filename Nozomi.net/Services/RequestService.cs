@@ -18,7 +18,7 @@ namespace Nozomi.net.Services
     /// <summary>
     /// RequestService operations.
     /// </summary>
-    public partial class RequestService : IServiceOperations<NozomiApiClient>, IRequest
+    public partial class RequestService : IServiceOperations<NozomiApiClient>, IRequestService
     {
         /// <summary>
         /// Initializes a new instance of the RequestService class.

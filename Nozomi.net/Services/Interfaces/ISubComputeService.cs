@@ -14,18 +14,37 @@ namespace Nozomi.net
     using System.Threading.Tasks;
 
     /// <summary>
-    /// ComponentService operations.
+    /// SubComputeService operations.
     /// </summary>
-    public partial interface IComponent
+    public partial interface ISubComputeService
     {
         /// <summary>
-        /// Obtain all components you have created.
+        /// Obtains all of the relevant Sub Computes you own.
         /// </summary>
-        /// <param name='requestGuid'>
-        /// The unique identifier of the request that contains this component.
+        /// <param name='index'>
+        /// The 'page' of the list of results of every x items.
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<object>> GETWithHttpMessagesAsync(int index, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Obtains all of the relevant child computes the parent compute has.
+        /// </summary>
+        /// <param name='parentComputeGuid'>
+        /// The parent compute that has these computes as its child.
         /// </param>
         /// <param name='index'>
-        /// The 'page' of the list of results in 100s
+        /// The 'page' of the list of results of every x items.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -42,53 +61,15 @@ namespace Nozomi.net
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> GETWithHttpMessagesAsync(string requestGuid, int? index = 0, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> GET1WithHttpMessagesAsync(string parentComputeGuid, int? index = 0, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Create a component.
+        /// Obtains all of the relevant parent computes the child compute has.
         /// </summary>
-        /// <param name='body'>
-        /// The supposed properties/parameters of the component.
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="Microsoft.Rest.HttpOperationException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.SerializationException">
-        /// Thrown when unable to deserialize the response
-        /// </exception>
-        Task<HttpOperationResponse<string>> POSTWithHttpMessagesAsync(CreateComponentInputModel body = default(CreateComponentInputModel), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// Delete a component.
-        /// </summary>
-        /// <param name='guid'>
-        /// The unique identifier of the component to delete.
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="Microsoft.Rest.HttpOperationException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.SerializationException">
-        /// Thrown when unable to deserialize the response
-        /// </exception>
-        Task<HttpOperationResponse<string>> DELETEWithHttpMessagesAsync(string guid = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// Obtain the component and its historical values.
-        /// </summary>
-        /// <param name='guid'>
-        /// The unique identifier of the component.
+        /// <param name='childComputeGuid'>
+        /// The child compute that has these computes as its parent.
         /// </param>
         /// <param name='index'>
-        /// The 'page' of the list of historical values in 100s
+        /// The 'page' of the list of results of every x items.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -105,12 +86,15 @@ namespace Nozomi.net
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> GET1WithHttpMessagesAsync(string guid, int? index = 0, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> GET2WithHttpMessagesAsync(string childComputeGuid, int? index = 0, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Update a component.
+        /// Obtains the specific sub compute.
         /// </summary>
-        /// <param name='body'>
-        /// The supposed properties/parameters of the component.
+        /// <param name='parentComputeGuid'>
+        /// The parent compute key.
+        /// </param>
+        /// <param name='childComputeGuid'>
+        /// The child compute key.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -124,6 +108,6 @@ namespace Nozomi.net
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<string>> PUTWithHttpMessagesAsync(UpdateComponentInputModel body = default(UpdateComponentInputModel), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> GET3WithHttpMessagesAsync(string parentComputeGuid = default(string), string childComputeGuid = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

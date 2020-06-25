@@ -16,7 +16,7 @@ namespace Nozomi.net
     /// <summary>
     /// WebsocketCommandPropertyService operations.
     /// </summary>
-    public partial interface IWebsocketCommandProperty
+    public partial interface IWebsocketCommandPropertyService
     {
         /// <summary>
         /// Retrieves all websocket command properties owned by the stated user

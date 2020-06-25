@@ -18,7 +18,7 @@ namespace Nozomi.net.Services
     /// <summary>
     /// WebsocketCommandService operations.
     /// </summary>
-    public partial class WebsocketCommandService : IServiceOperations<NozomiApiClient>, IWebsocketCommand
+    public partial class WebsocketCommandService : IServiceOperations<NozomiApiClient>, IWebsocketCommandService
     {
         /// <summary>
         /// Initializes a new instance of the WebsocketCommandService class.

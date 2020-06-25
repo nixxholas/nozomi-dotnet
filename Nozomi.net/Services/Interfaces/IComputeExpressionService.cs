@@ -14,18 +14,18 @@ namespace Nozomi.net
     using System.Threading.Tasks;
 
     /// <summary>
-    /// ComputeValueService operations.
+    /// ComputeExpressionService operations.
     /// </summary>
-    public partial interface IComputeValue
+    public partial interface IComputeExpressionService
     {
         /// <summary>
-        /// Obtain all compute value generated.
+        /// Obtains all of the relevant compute expressions you own.
         /// </summary>
         /// <param name='index'>
-        /// The 'page' of the list of results in x
+        /// The 'page' of the list of results of every x items.
         /// </param>
         /// <param name='computeGuid'>
-        /// The compute guid relating to the values in question, optional.
+        /// Filter by the compute if needed.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -41,10 +41,10 @@ namespace Nozomi.net
         /// </exception>
         Task<HttpOperationResponse<object>> GETWithHttpMessagesAsync(int index, string computeGuid = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Obtain the compute value specified.
+        /// Obtains the specific compute expression.
         /// </summary>
         /// <param name='guid'>
-        /// The guid of the compute value in question.
+        /// The Guid of the compute expression in question.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -62,27 +62,5 @@ namespace Nozomi.net
         /// Thrown when a required parameter is null
         /// </exception>
         Task<HttpOperationResponse<object>> GET1WithHttpMessagesAsync(string guid, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// Obtain the last compute value of the compute in question.
-        /// </summary>
-        /// <param name='computeGuid'>
-        /// The compute in question.
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="Microsoft.Rest.HttpOperationException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.SerializationException">
-        /// Thrown when unable to deserialize the response
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        Task<HttpOperationResponse<object>> GET2WithHttpMessagesAsync(string computeGuid, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

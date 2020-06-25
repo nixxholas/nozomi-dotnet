@@ -18,7 +18,7 @@ namespace Nozomi.net.Services
     /// <summary>
     /// ItemService operations.
     /// </summary>
-    public partial class ItemService : IServiceOperations<NozomiApiClient>, IItem
+    public partial class ItemService : IServiceOperations<NozomiApiClient>, IItemService
     {
         /// <summary>
         /// Initializes a new instance of the ItemService class.

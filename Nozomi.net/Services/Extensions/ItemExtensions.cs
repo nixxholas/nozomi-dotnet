@@ -24,7 +24,7 @@ namespace Nozomi.net
             /// <param name='index'>
             /// The 'page' of the list of results of every x items.
             /// </param>
-            public static object GET(this IItem operations, int index)
+            public static object GET(this IItemService operations, int index)
             {
                 return operations.GETAsync(index).GetAwaiter().GetResult();
             }
@@ -41,7 +41,7 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GETAsync(this IItem operations, int index, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GETAsync(this IItemService operations, int index, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GETWithHttpMessagesAsync(index, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -58,7 +58,7 @@ namespace Nozomi.net
             /// <param name='body'>
             /// The supposed properties/parameters of the item.
             /// </param>
-            public static string POST(this IItem operations, CreateItemInputModel body = default(CreateItemInputModel))
+            public static string POST(this IItemService operations, CreateItemInputModel body = default(CreateItemInputModel))
             {
                 return operations.POSTAsync(body).GetAwaiter().GetResult();
             }
@@ -75,7 +75,7 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> POSTAsync(this IItem operations, CreateItemInputModel body = default(CreateItemInputModel), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> POSTAsync(this IItemService operations, CreateItemInputModel body = default(CreateItemInputModel), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.POSTWithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -95,7 +95,7 @@ namespace Nozomi.net
             /// <param name='local'>
             /// If you want to only check the slugs you own.
             /// </param>
-            public static object GET1(this IItem operations, string slug, bool? local = false)
+            public static object GET1(this IItemService operations, string slug, bool? local = false)
             {
                 return operations.GET1Async(slug, local).GetAwaiter().GetResult();
             }
@@ -115,7 +115,7 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GET1Async(this IItem operations, string slug, bool? local = false, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GET1Async(this IItemService operations, string slug, bool? local = false, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GET1WithHttpMessagesAsync(slug, local, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -132,7 +132,7 @@ namespace Nozomi.net
             /// <param name='itemGuid'>
             /// The unique identifier of the item.
             /// </param>
-            public static object GET2(this IItem operations, string itemGuid)
+            public static object GET2(this IItemService operations, string itemGuid)
             {
                 return operations.GET2Async(itemGuid).GetAwaiter().GetResult();
             }
@@ -149,7 +149,7 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GET2Async(this IItem operations, string itemGuid, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GET2Async(this IItemService operations, string itemGuid, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GET2WithHttpMessagesAsync(itemGuid, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -166,7 +166,7 @@ namespace Nozomi.net
             /// <param name='slug'>
             /// The unique slug of the item.
             /// </param>
-            public static object GET3(this IItem operations, string slug)
+            public static object GET3(this IItemService operations, string slug)
             {
                 return operations.GET3Async(slug).GetAwaiter().GetResult();
             }
@@ -183,7 +183,7 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GET3Async(this IItem operations, string slug, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GET3Async(this IItemService operations, string slug, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GET3WithHttpMessagesAsync(slug, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -200,7 +200,7 @@ namespace Nozomi.net
             /// <param name='body'>
             /// The supposed properties/parameters the value you want to update on an item.
             /// </param>
-            public static string PUT(this IItem operations, UpdateItemInputModel body = default(UpdateItemInputModel))
+            public static string PUT(this IItemService operations, UpdateItemInputModel body = default(UpdateItemInputModel))
             {
                 return operations.PUTAsync(body).GetAwaiter().GetResult();
             }
@@ -217,7 +217,7 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> PUTAsync(this IItem operations, UpdateItemInputModel body = default(UpdateItemInputModel), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> PUTAsync(this IItemService operations, UpdateItemInputModel body = default(UpdateItemInputModel), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.PUTWithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {

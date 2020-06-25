@@ -10,6 +10,7 @@ using Microsoft.Rest;
 using Microsoft.Rest.Serialization;
 using Newtonsoft.Json;
 using Nozomi.net.Constants;
+using Nozomi.net.Interfaces;
 using Nozomi.net.Services;
 
 namespace Nozomi.net
@@ -44,67 +45,67 @@ namespace Nozomi.net
         /// <summary>
         /// Gets the IComponent.
         /// </summary>
-        public virtual IComponent Component { get; private set; }
+        public virtual IComponentService ComponentService { get; private set; }
 
         /// <summary>
-        /// Gets the IComponentHistoricItem.
+        /// Gets the IComponentHistoricItemService.
         /// </summary>
-        public virtual IComponentHistoricItem ComponentHistoricItem { get; private set; }
+        public virtual IComponentHistoricItemService ComponentHistoricItemService { get; private set; }
 
         /// <summary>
-        /// Gets the IComponentType.
+        /// Gets the IComponentTypeService.
         /// </summary>
-        public virtual IComponentType ComponentType { get; private set; }
+        public virtual IComponentTypeService ComponentTypeService { get; private set; }
 
         /// <summary>
-        /// Gets the ICompute.
+        /// Gets the IComputeService.
         /// </summary>
-        public virtual ICompute Compute { get; private set; }
+        public virtual IComputeService ComputeService { get; private set; }
 
         /// <summary>
-        /// Gets the IComputeExpression.
+        /// Gets the IComputeExpressionService.
         /// </summary>
-        public virtual IComputeExpression ComputeExpression { get; private set; }
+        public virtual IComputeExpressionService ComputeExpressionService { get; private set; }
 
         /// <summary>
-        /// Gets the IComputeValue.
+        /// Gets the IComputeValueService.
         /// </summary>
-        public virtual IComputeValue ComputeValue { get; private set; }
+        public virtual IComputeValueService ComputeValueService { get; private set; }
 
         /// <summary>
-        /// Gets the IConnect.
+        /// Gets the IConnectService.
         /// </summary>
-        public virtual IConnect Connect { get; private set; }
+        public virtual IConnectService ConnectService { get; private set; }
 
         /// <summary>
-        /// Gets the IItem.
+        /// Gets the IItemService.
         /// </summary>
-        public virtual IItem Item { get; private set; }
+        public virtual IItemService ItemService { get; private set; }
 
         /// <summary>
-        /// Gets the IRequest.
+        /// Gets the IRequestService.
         /// </summary>
-        public virtual IRequest Request { get; private set; }
+        public virtual IRequestService RequestService { get; private set; }
 
         /// <summary>
-        /// Gets the IRequestProperty.
+        /// Gets the IRequestPropertyService.
         /// </summary>
-        public virtual IRequestProperty RequestProperty { get; private set; }
+        public virtual IRequestPropertyService RequestPropertyService { get; private set; }
 
         /// <summary>
-        /// Gets the ISubCompute.
+        /// Gets the ISubComputeService.
         /// </summary>
-        public virtual ISubCompute SubCompute { get; private set; }
+        public virtual ISubComputeService SubComputeService { get; private set; }
 
         /// <summary>
-        /// Gets the IWebsocketCommand.
+        /// Gets the IWebsocketCommandService.
         /// </summary>
-        public virtual IWebsocketCommand WebsocketCommand { get; private set; }
+        public virtual IWebsocketCommandService WebsocketCommandService { get; private set; }
 
         /// <summary>
-        /// Gets the IWebsocketCommandProperty.
+        /// Gets the IWebsocketCommandPropertyService.
         /// </summary>
-        public virtual IWebsocketCommandProperty WebsocketCommandProperty { get; private set; }
+        public virtual IWebsocketCommandPropertyService WebsocketCommandPropertyService { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the NozomiApiClient class.
@@ -164,19 +165,19 @@ namespace Nozomi.net
         /// </summary>
         private void Initialize()
         {
-            Component = new ComponentService(this);
-            ComponentHistoricItem = new ComponentHistoricItemService(this);
-            ComponentType = new ComponentTypeService(this);
-            Compute = new ComputeService(this);
-            ComputeExpression = new ComputeExpression(this);
-            ComputeValue = new ComputeValueService(this);
-            Connect = new ConnectService(this);
-            Item = new ItemService(this);
-            Request = new RequestService(this);
-            RequestProperty = new RequestProperty(this);
-            SubCompute = new SubComputeService(this);
-            WebsocketCommand = new WebsocketCommandService(this);
-            WebsocketCommandProperty = new WebsocketCommandPropertyService(this);
+            ComponentService = new ComponentService(this);
+            ComponentHistoricItemService = new ComponentHistoricItemService(this);
+            ComponentTypeService = new ComponentTypeService(this);
+            ComputeService = new ComputeService(this);
+            ComputeExpressionService = new ComputeExpressionService(this);
+            ComputeValueService = new ComputeValueService(this);
+            ConnectService = new ConnectService(this);
+            ItemService = new ItemService(this);
+            RequestService = new RequestService(this);
+            RequestPropertyService = new RequestPropertyService(this);
+            SubComputeService = new SubComputeService(this);
+            WebsocketCommandService = new WebsocketCommandService(this);
+            WebsocketCommandPropertyService = new WebsocketCommandPropertyService(this);
             BaseUri = new System.Uri(NozomiConstants.ApiBaseUrl);
             SerializationSettings = new JsonSerializerSettings
             {

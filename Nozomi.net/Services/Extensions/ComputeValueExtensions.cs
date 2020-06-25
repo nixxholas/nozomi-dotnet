@@ -26,7 +26,7 @@ namespace Nozomi.net.Services.Extensions
             /// <param name='computeGuid'>
             /// The compute guid relating to the values in question, optional.
             /// </param>
-            public static object GET(this IComputeValue operations, int index, string computeGuid = default(string))
+            public static object GET(this IComputeValueService operations, int index, string computeGuid = default(string))
             {
                 return operations.GETAsync(index, computeGuid).GetAwaiter().GetResult();
             }
@@ -46,7 +46,7 @@ namespace Nozomi.net.Services.Extensions
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GETAsync(this IComputeValue operations, int index, string computeGuid = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GETAsync(this IComputeValueService operations, int index, string computeGuid = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GETWithHttpMessagesAsync(index, computeGuid, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -63,7 +63,7 @@ namespace Nozomi.net.Services.Extensions
             /// <param name='guid'>
             /// The guid of the compute value in question.
             /// </param>
-            public static object GET1(this IComputeValue operations, string guid)
+            public static object GET1(this IComputeValueService operations, string guid)
             {
                 return operations.GET1Async(guid).GetAwaiter().GetResult();
             }
@@ -80,7 +80,7 @@ namespace Nozomi.net.Services.Extensions
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GET1Async(this IComputeValue operations, string guid, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GET1Async(this IComputeValueService operations, string guid, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GET1WithHttpMessagesAsync(guid, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -97,7 +97,7 @@ namespace Nozomi.net.Services.Extensions
             /// <param name='computeGuid'>
             /// The compute in question.
             /// </param>
-            public static object GET2(this IComputeValue operations, string computeGuid)
+            public static object GET2(this IComputeValueService operations, string computeGuid)
             {
                 return operations.GET2Async(computeGuid).GetAwaiter().GetResult();
             }
@@ -114,7 +114,7 @@ namespace Nozomi.net.Services.Extensions
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GET2Async(this IComputeValue operations, string computeGuid, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GET2Async(this IComputeValueService operations, string computeGuid, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GET2WithHttpMessagesAsync(computeGuid, null, cancellationToken).ConfigureAwait(false))
                 {

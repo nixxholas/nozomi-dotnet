@@ -25,7 +25,7 @@ namespace Nozomi.net.Services.Extensions
             /// <param name='index'>
             /// The 'page' of the list you are viewing, in 1000s.
             /// </param>
-            public static object GET(this IWebsocketCommandProperty operations, int? index = 0)
+            public static object GET(this IWebsocketCommandPropertyService operations, int? index = 0)
             {
                 return operations.GETAsync(index).GetAwaiter().GetResult();
             }
@@ -44,7 +44,7 @@ namespace Nozomi.net.Services.Extensions
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GETAsync(this IWebsocketCommandProperty operations, int? index = 0, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GETAsync(this IWebsocketCommandPropertyService operations, int? index = 0, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GETWithHttpMessagesAsync(index, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -64,7 +64,7 @@ namespace Nozomi.net.Services.Extensions
             /// <param name='index'>
             /// The 'page' of the list you are viewing, in 1000s.
             /// </param>
-            public static object GET1(this IWebsocketCommandProperty operations, string commandGuid = default(string), int? index = 0)
+            public static object GET1(this IWebsocketCommandPropertyService operations, string commandGuid = default(string), int? index = 0)
             {
                 return operations.GET1Async(commandGuid, index).GetAwaiter().GetResult();
             }
@@ -84,7 +84,7 @@ namespace Nozomi.net.Services.Extensions
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GET1Async(this IWebsocketCommandProperty operations, string commandGuid = default(string), int? index = 0, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GET1Async(this IWebsocketCommandPropertyService operations, string commandGuid = default(string), int? index = 0, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GET1WithHttpMessagesAsync(commandGuid, index, null, cancellationToken).ConfigureAwait(false))
                 {

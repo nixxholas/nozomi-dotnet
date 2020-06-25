@@ -4,11 +4,10 @@
 // regenerated.
 // </auto-generated>
 
-namespace Nozomi.net
-{
-    using Models;
-    using Newtonsoft.Json;
+using Newtonsoft.Json;
 
+namespace Nozomi.net.Interfaces
+{
     /// <summary>
     /// </summary>
     public partial interface INozomiAPI : System.IDisposable
@@ -32,67 +31,67 @@ namespace Nozomi.net
         /// <summary>
         /// Gets the IComponent.
         /// </summary>
-        IComponent Component { get; }
+        IComponentService ComponentService { get; }
 
         /// <summary>
-        /// Gets the IComponentHistoricItem.
+        /// Gets the IComponentHistoricItemService.
         /// </summary>
-        IComponentHistoricItem ComponentHistoricItem { get; }
+        IComponentHistoricItemService ComponentHistoricItemService { get; }
 
         /// <summary>
-        /// Gets the IComponentType.
+        /// Gets the IComponentTypeService.
         /// </summary>
-        IComponentType ComponentType { get; }
+        IComponentTypeService ComponentTypeService { get; }
 
         /// <summary>
-        /// Gets the ICompute.
+        /// Gets the IComputeService.
         /// </summary>
-        ICompute Compute { get; }
+        IComputeService ComputeService { get; }
 
         /// <summary>
-        /// Gets the IComputeExpression.
+        /// Gets the IComputeExpressionService.
         /// </summary>
-        IComputeExpression ComputeExpression { get; }
+        IComputeExpressionService ComputeExpressionService { get; }
 
         /// <summary>
-        /// Gets the IComputeValue.
+        /// Gets the IComputeValueService.
         /// </summary>
-        IComputeValue ComputeValue { get; }
+        IComputeValueService ComputeValueService { get; }
 
         /// <summary>
-        /// Gets the IConnect.
+        /// Gets the IConnectService.
         /// </summary>
-        IConnect Connect { get; }
+        IConnectService ConnectService { get; }
 
         /// <summary>
-        /// Gets the IItem.
+        /// Gets the IItemService.
         /// </summary>
-        IItem Item { get; }
+        IItemService ItemService { get; }
 
         /// <summary>
-        /// Gets the IRequest.
+        /// Gets the IRequestService.
         /// </summary>
-        IRequest Request { get; }
+        IRequestService RequestService { get; }
 
         /// <summary>
-        /// Gets the IRequestProperty.
+        /// Gets the IRequestPropertyService.
         /// </summary>
-        IRequestProperty RequestProperty { get; }
+        IRequestPropertyService RequestPropertyService { get; }
 
         /// <summary>
-        /// Gets the ISubCompute.
+        /// Gets the ISubComputeService.
         /// </summary>
-        ISubCompute SubCompute { get; }
+        ISubComputeService SubComputeService { get; }
 
         /// <summary>
-        /// Gets the IWebsocketCommand.
+        /// Gets the IWebsocketCommandService.
         /// </summary>
-        IWebsocketCommand WebsocketCommand { get; }
+        IWebsocketCommandService WebsocketCommandService { get; }
 
         /// <summary>
-        /// Gets the IWebsocketCommandProperty.
+        /// Gets the IWebsocketCommandPropertyService.
         /// </summary>
-        IWebsocketCommandProperty WebsocketCommandProperty { get; }
+        IWebsocketCommandPropertyService WebsocketCommandPropertyService { get; }
 
     }
 }

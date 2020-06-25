@@ -14,12 +14,12 @@ namespace Nozomi.net
     using System.Threading.Tasks;
 
     /// <summary>
-    /// SubComputeService operations.
+    /// ItemService operations.
     /// </summary>
-    public partial interface ISubCompute
+    public partial interface IItemService
     {
         /// <summary>
-        /// Obtains all of the relevant Sub Computes you own.
+        /// Obtains all of the relevant items you own.
         /// </summary>
         /// <param name='index'>
         /// The 'page' of the list of results of every x items.
@@ -38,13 +38,32 @@ namespace Nozomi.net
         /// </exception>
         Task<HttpOperationResponse<object>> GETWithHttpMessagesAsync(int index, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Obtains all of the relevant child computes the parent compute has.
+        /// Create an item.
         /// </summary>
-        /// <param name='parentComputeGuid'>
-        /// The parent compute that has these computes as its child.
+        /// <param name='body'>
+        /// The supposed properties/parameters of the item.
         /// </param>
-        /// <param name='index'>
-        /// The 'page' of the list of results of every x items.
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<string>> POSTWithHttpMessagesAsync(CreateItemInputModel body = default(CreateItemInputModel), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Validates if the slug is being used.
+        /// </summary>
+        /// <param name='slug'>
+        /// The unique identifier of the item.
+        /// </param>
+        /// <param name='local'>
+        /// If you want to only check the slugs you own.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -61,15 +80,12 @@ namespace Nozomi.net
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> GET1WithHttpMessagesAsync(string parentComputeGuid, int? index = 0, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> GET1WithHttpMessagesAsync(string slug, bool? local = false, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Obtains all of the relevant parent computes the child compute has.
+        /// Obtains the specified item.
         /// </summary>
-        /// <param name='childComputeGuid'>
-        /// The child compute that has these computes as its parent.
-        /// </param>
-        /// <param name='index'>
-        /// The 'page' of the list of results of every x items.
+        /// <param name='itemGuid'>
+        /// The unique identifier of the item.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -86,15 +102,12 @@ namespace Nozomi.net
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> GET2WithHttpMessagesAsync(string childComputeGuid, int? index = 0, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> GET2WithHttpMessagesAsync(string itemGuid, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Obtains the specific sub compute.
+        /// Obtains the specified item.
         /// </summary>
-        /// <param name='parentComputeGuid'>
-        /// The parent compute key.
-        /// </param>
-        /// <param name='childComputeGuid'>
-        /// The child compute key.
+        /// <param name='slug'>
+        /// The unique slug of the item.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -108,6 +121,29 @@ namespace Nozomi.net
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<object>> GET3WithHttpMessagesAsync(string parentComputeGuid = default(string), string childComputeGuid = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<object>> GET3WithHttpMessagesAsync(string slug, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Update the specified item.
+        /// </summary>
+        /// <param name='body'>
+        /// The supposed properties/parameters the value you want to update on
+        /// an item.
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<string>> PUTWithHttpMessagesAsync(UpdateItemInputModel body = default(UpdateItemInputModel), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

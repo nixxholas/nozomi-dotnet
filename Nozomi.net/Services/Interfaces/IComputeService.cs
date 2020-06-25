@@ -14,15 +14,15 @@ namespace Nozomi.net
     using System.Threading.Tasks;
 
     /// <summary>
-    /// WebsocketCommandService operations.
+    /// ComputeService operations.
     /// </summary>
-    public partial interface IWebsocketCommand
+    public partial interface IComputeService
     {
         /// <summary>
-        /// Obtain all websocket commands you have created/own.
+        /// Obtains all of the relevant computes you own.
         /// </summary>
         /// <param name='index'>
-        /// The 'page' of the list of results in 100s.
+        /// The 'page' of the list of results of every x items.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -36,16 +36,12 @@ namespace Nozomi.net
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<object>> GETWithHttpMessagesAsync(int? index = 0, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> GETWithHttpMessagesAsync(int index, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Obtain all of the websocket commands created, relative to the
-        /// request.
+        /// Obtains the specific compute.
         /// </summary>
-        /// <param name='requestGuid'>
-        /// The unique identifier of the request.
-        /// </param>
-        /// <param name='index'>
-        /// The 'page' of the list of results in 100s.
+        /// <param name='guid'>
+        /// The Guid of the compute in question.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -59,6 +55,9 @@ namespace Nozomi.net
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<object>> GET1WithHttpMessagesAsync(string requestGuid = default(string), int? index = 0, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<object>> GET1WithHttpMessagesAsync(string guid, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

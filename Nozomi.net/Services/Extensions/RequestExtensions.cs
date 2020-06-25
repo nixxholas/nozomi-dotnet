@@ -25,7 +25,7 @@ namespace Nozomi.net
             /// <param name='index'>
             /// The 'page' of the request list you're viewing
             /// </param>
-            public static object GET(this IRequest operations, int? index = 0)
+            public static object GET(this IRequestService operations, int? index = 0)
             {
                 return operations.GETAsync(index).GetAwaiter().GetResult();
             }
@@ -43,7 +43,7 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GETAsync(this IRequest operations, int? index = 0, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GETAsync(this IRequestService operations, int? index = 0, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GETWithHttpMessagesAsync(index, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -60,7 +60,7 @@ namespace Nozomi.net
             /// <param name='body'>
             /// The supposed properties/parameters of the request.
             /// </param>
-            public static string POST(this IRequest operations, CreateRequestInputModel body = default(CreateRequestInputModel))
+            public static string POST(this IRequestService operations, CreateRequestInputModel body = default(CreateRequestInputModel))
             {
                 return operations.POSTAsync(body).GetAwaiter().GetResult();
             }
@@ -77,7 +77,7 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> POSTAsync(this IRequest operations, CreateRequestInputModel body = default(CreateRequestInputModel), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> POSTAsync(this IRequestService operations, CreateRequestInputModel body = default(CreateRequestInputModel), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.POSTWithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -94,7 +94,7 @@ namespace Nozomi.net
             /// <param name='guid'>
             /// The unique ID of the request.
             /// </param>
-            public static string DELETE(this IRequest operations, string guid)
+            public static string DELETE(this IRequestService operations, string guid)
             {
                 return operations.DELETEAsync(guid).GetAwaiter().GetResult();
             }
@@ -111,7 +111,7 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> DELETEAsync(this IRequest operations, string guid, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> DELETEAsync(this IRequestService operations, string guid, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.DELETEWithHttpMessagesAsync(guid, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -128,7 +128,7 @@ namespace Nozomi.net
             /// <param name='guid'>
             /// Guid of the request
             /// </param>
-            public static object GET1(this IRequest operations, string guid)
+            public static object GET1(this IRequestService operations, string guid)
             {
                 return operations.GET1Async(guid).GetAwaiter().GetResult();
             }
@@ -145,7 +145,7 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GET1Async(this IRequest operations, string guid, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GET1Async(this IRequestService operations, string guid, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GET1WithHttpMessagesAsync(guid, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -162,7 +162,7 @@ namespace Nozomi.net
             /// <param name='body'>
             /// The supposed properties/parameters of the request.
             /// </param>
-            public static string PUT(this IRequest operations, UpdateRequestInputModel body = default(UpdateRequestInputModel))
+            public static string PUT(this IRequestService operations, UpdateRequestInputModel body = default(UpdateRequestInputModel))
             {
                 return operations.PUTAsync(body).GetAwaiter().GetResult();
             }
@@ -179,7 +179,7 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> PUTAsync(this IRequest operations, UpdateRequestInputModel body = default(UpdateRequestInputModel), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> PUTAsync(this IRequestService operations, UpdateRequestInputModel body = default(UpdateRequestInputModel), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.PUTWithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {

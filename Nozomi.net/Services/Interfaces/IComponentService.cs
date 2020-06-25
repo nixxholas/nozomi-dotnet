@@ -14,54 +14,18 @@ namespace Nozomi.net
     using System.Threading.Tasks;
 
     /// <summary>
-    /// RequestService operations.
+    /// ComponentService operations.
     /// </summary>
-    public partial interface IRequest
+    public partial interface IComponentService
     {
         /// <summary>
-        /// Retrieves all requests owned by the stated user with a pagination
-        /// of 100 items.
+        /// Obtain all components you have created.
         /// </summary>
+        /// <param name='requestGuid'>
+        /// The unique identifier of the request that contains this component.
+        /// </param>
         /// <param name='index'>
-        /// The 'page' of the request list you're viewing
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="Microsoft.Rest.HttpOperationException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.SerializationException">
-        /// Thrown when unable to deserialize the response
-        /// </exception>
-        Task<HttpOperationResponse<object>> GETWithHttpMessagesAsync(int? index = 0, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// Create a request.
-        /// </summary>
-        /// <param name='body'>
-        /// The supposed properties/parameters of the request.
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="Microsoft.Rest.HttpOperationException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.SerializationException">
-        /// Thrown when unable to deserialize the response
-        /// </exception>
-        Task<HttpOperationResponse<string>> POSTWithHttpMessagesAsync(CreateRequestInputModel body = default(CreateRequestInputModel), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// Delete a request.
-        /// </summary>
-        /// <param name='guid'>
-        /// The unique ID of the request.
+        /// The 'page' of the list of results in 100s
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -78,12 +42,53 @@ namespace Nozomi.net
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<string>> DELETEWithHttpMessagesAsync(string guid, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> GETWithHttpMessagesAsync(string requestGuid, int? index = 0, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Retrieves the request with the mentioned guid.
+        /// Create a component.
+        /// </summary>
+        /// <param name='body'>
+        /// The supposed properties/parameters of the component.
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<string>> POSTWithHttpMessagesAsync(CreateComponentInputModel body = default(CreateComponentInputModel), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Delete a component.
         /// </summary>
         /// <param name='guid'>
-        /// Guid of the request
+        /// The unique identifier of the component to delete.
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<string>> DELETEWithHttpMessagesAsync(string guid = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Obtain the component and its historical values.
+        /// </summary>
+        /// <param name='guid'>
+        /// The unique identifier of the component.
+        /// </param>
+        /// <param name='index'>
+        /// The 'page' of the list of historical values in 100s
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -100,12 +105,12 @@ namespace Nozomi.net
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> GET1WithHttpMessagesAsync(string guid, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> GET1WithHttpMessagesAsync(string guid, int? index = 0, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Update a request.
+        /// Update a component.
         /// </summary>
         /// <param name='body'>
-        /// The supposed properties/parameters of the request.
+        /// The supposed properties/parameters of the component.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -119,6 +124,6 @@ namespace Nozomi.net
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<string>> PUTWithHttpMessagesAsync(UpdateRequestInputModel body = default(UpdateRequestInputModel), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<string>> PUTWithHttpMessagesAsync(UpdateComponentInputModel body = default(UpdateComponentInputModel), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

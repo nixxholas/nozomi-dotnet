@@ -23,7 +23,7 @@ namespace Nozomi.net.Services.Extensions
             /// <param name='index'>
             /// The 'page' of the list of results of every x items.
             /// </param>
-            public static object GET(this ICompute operations, int index)
+            public static object GET(this IComputeService operations, int index)
             {
                 return operations.GETAsync(index).GetAwaiter().GetResult();
             }
@@ -40,7 +40,7 @@ namespace Nozomi.net.Services.Extensions
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GETAsync(this ICompute operations, int index, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GETAsync(this IComputeService operations, int index, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GETWithHttpMessagesAsync(index, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -57,7 +57,7 @@ namespace Nozomi.net.Services.Extensions
             /// <param name='guid'>
             /// The Guid of the compute in question.
             /// </param>
-            public static object GET1(this ICompute operations, string guid)
+            public static object GET1(this IComputeService operations, string guid)
             {
                 return operations.GET1Async(guid).GetAwaiter().GetResult();
             }
@@ -74,7 +74,7 @@ namespace Nozomi.net.Services.Extensions
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GET1Async(this ICompute operations, string guid, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GET1Async(this IComputeService operations, string guid, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GET1WithHttpMessagesAsync(guid, null, cancellationToken).ConfigureAwait(false))
                 {

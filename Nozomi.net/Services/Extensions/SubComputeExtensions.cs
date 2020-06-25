@@ -24,7 +24,7 @@ namespace Nozomi.net
             /// <param name='index'>
             /// The 'page' of the list of results of every x items.
             /// </param>
-            public static object GET(this ISubCompute operations, int index)
+            public static object GET(this ISubComputeService operations, int index)
             {
                 return operations.GETAsync(index).GetAwaiter().GetResult();
             }
@@ -41,7 +41,7 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GETAsync(this ISubCompute operations, int index, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GETAsync(this ISubComputeService operations, int index, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GETWithHttpMessagesAsync(index, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -61,7 +61,7 @@ namespace Nozomi.net
             /// <param name='index'>
             /// The 'page' of the list of results of every x items.
             /// </param>
-            public static object GET1(this ISubCompute operations, string parentComputeGuid, int? index = 0)
+            public static object GET1(this ISubComputeService operations, string parentComputeGuid, int? index = 0)
             {
                 return operations.GET1Async(parentComputeGuid, index).GetAwaiter().GetResult();
             }
@@ -81,7 +81,7 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GET1Async(this ISubCompute operations, string parentComputeGuid, int? index = 0, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GET1Async(this ISubComputeService operations, string parentComputeGuid, int? index = 0, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GET1WithHttpMessagesAsync(parentComputeGuid, index, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -101,7 +101,7 @@ namespace Nozomi.net
             /// <param name='index'>
             /// The 'page' of the list of results of every x items.
             /// </param>
-            public static object GET2(this ISubCompute operations, string childComputeGuid, int? index = 0)
+            public static object GET2(this ISubComputeService operations, string childComputeGuid, int? index = 0)
             {
                 return operations.GET2Async(childComputeGuid, index).GetAwaiter().GetResult();
             }
@@ -121,7 +121,7 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GET2Async(this ISubCompute operations, string childComputeGuid, int? index = 0, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GET2Async(this ISubComputeService operations, string childComputeGuid, int? index = 0, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GET2WithHttpMessagesAsync(childComputeGuid, index, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -141,7 +141,7 @@ namespace Nozomi.net
             /// <param name='childComputeGuid'>
             /// The child compute key.
             /// </param>
-            public static object GET3(this ISubCompute operations, string parentComputeGuid = default(string), string childComputeGuid = default(string))
+            public static object GET3(this ISubComputeService operations, string parentComputeGuid = default(string), string childComputeGuid = default(string))
             {
                 return operations.GET3Async(parentComputeGuid, childComputeGuid).GetAwaiter().GetResult();
             }
@@ -161,7 +161,7 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GET3Async(this ISubCompute operations, string parentComputeGuid = default(string), string childComputeGuid = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GET3Async(this ISubComputeService operations, string parentComputeGuid = default(string), string childComputeGuid = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GET3WithHttpMessagesAsync(parentComputeGuid, childComputeGuid, null, cancellationToken).ConfigureAwait(false))
                 {

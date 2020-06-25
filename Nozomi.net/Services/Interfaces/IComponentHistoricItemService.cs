@@ -16,7 +16,7 @@ namespace Nozomi.net
     /// <summary>
     /// ComponentHistoricItemService operations.
     /// </summary>
-    public partial interface IComponentHistoricItem
+    public partial interface IComponentHistoricItemService
     {
         /// <summary>
         /// Obtain all the component historical values created

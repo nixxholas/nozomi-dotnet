@@ -18,7 +18,7 @@ namespace Nozomi.net.Services
     /// <summary>
     /// SubComputeService operations.
     /// </summary>
-    public partial class SubComputeService : IServiceOperations<NozomiApiClient>, ISubCompute
+    public partial class SubComputeService : IServiceOperations<NozomiApiClient>, ISubComputeService
     {
         /// <summary>
         /// Initializes a new instance of the SubComputeService class.

@@ -20,7 +20,7 @@ namespace Nozomi.net.Services.Extensions
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static string HEAD(this IConnect operations)
+            public static string HEAD(this IConnectService operations)
             {
                 return operations.HEADAsync().GetAwaiter().GetResult();
             }
@@ -34,7 +34,7 @@ namespace Nozomi.net.Services.Extensions
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> HEADAsync(this IConnect operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> HEADAsync(this IConnectService operations, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.HEADWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
                 {

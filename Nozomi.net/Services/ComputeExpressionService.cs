@@ -16,12 +16,12 @@ using Nozomi.net.Models;
 namespace Nozomi.net.Services
 {
     /// <summary>
-    /// ComputeExpression operations.
+    /// ComputeExpressionService operations.
     /// </summary>
-    public partial class ComputeExpression : IServiceOperations<NozomiApiClient>, IComputeExpression
+    public partial class ComputeExpressionService : IServiceOperations<NozomiApiClient>, IComputeExpressionService
     {
         /// <summary>
-        /// Initializes a new instance of the ComputeExpression class.
+        /// Initializes a new instance of the ComputeExpressionService class.
         /// </summary>
         /// <param name='client'>
         /// Reference to the service client.
@@ -29,7 +29,7 @@ namespace Nozomi.net.Services
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public ComputeExpression(NozomiApiClient client)
+        public ComputeExpressionService(NozomiApiClient client)
         {
             if (client == null)
             {
@@ -83,7 +83,7 @@ namespace Nozomi.net.Services
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ComputeExpression/All/{index}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ComputeExpressionService/All/{index}").ToString();
             _url = _url.Replace("{index}", System.Uri.EscapeDataString(Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(index, Client.SerializationSettings).Trim('"')));
             List<string> _queryParameters = new List<string>();
             if (computeGuid != null)
@@ -263,7 +263,7 @@ namespace Nozomi.net.Services
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ComputeExpression/Get/{guid}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ComputeExpressionService/Get/{guid}").ToString();
             _url = _url.Replace("{guid}", System.Uri.EscapeDataString(guid));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();

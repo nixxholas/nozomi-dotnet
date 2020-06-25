@@ -14,15 +14,16 @@ namespace Nozomi.net
     using System.Threading.Tasks;
 
     /// <summary>
-    /// RequestProperty operations.
+    /// RequestService operations.
     /// </summary>
-    public partial interface IRequestProperty
+    public partial interface IRequestService
     {
         /// <summary>
-        /// Obtain all request properties you have created/own.
+        /// Retrieves all requests owned by the stated user with a pagination
+        /// of 100 items.
         /// </summary>
         /// <param name='index'>
-        /// The 'page' of the list of results in 100s.
+        /// The 'page' of the request list you're viewing
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -38,33 +39,10 @@ namespace Nozomi.net
         /// </exception>
         Task<HttpOperationResponse<object>> GETWithHttpMessagesAsync(int? index = 0, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Obtain all analysed components you have created, relative to that
-        /// specific request.
-        /// </summary>
-        /// <param name='requestGuid'>
-        /// The request guid you are referring to.
-        /// </param>
-        /// <param name='index'>
-        /// The 'page' of the list of results in 100s.
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="Microsoft.Rest.HttpOperationException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.SerializationException">
-        /// Thrown when unable to deserialize the response
-        /// </exception>
-        Task<HttpOperationResponse<object>> GET1WithHttpMessagesAsync(string requestGuid = default(string), int? index = 0, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// Create a request property.
+        /// Create a request.
         /// </summary>
         /// <param name='body'>
-        /// The supposed properties/parameters of the request property.
+        /// The supposed properties/parameters of the request.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -78,12 +56,12 @@ namespace Nozomi.net
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<string>> POSTWithHttpMessagesAsync(CreateRequestPropertyInputModel body = default(CreateRequestPropertyInputModel), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<string>> POSTWithHttpMessagesAsync(CreateRequestInputModel body = default(CreateRequestInputModel), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Delete a request property
+        /// Delete a request.
         /// </summary>
         /// <param name='guid'>
-        /// The unique identifier of the deletion attempt.
+        /// The unique ID of the request.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -102,10 +80,10 @@ namespace Nozomi.net
         /// </exception>
         Task<HttpOperationResponse<string>> DELETEWithHttpMessagesAsync(string guid, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Update a request property.
+        /// Retrieves the request with the mentioned guid.
         /// </summary>
-        /// <param name='body'>
-        /// The supposed properties/parameters of the request property.
+        /// <param name='guid'>
+        /// Guid of the request
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -119,6 +97,28 @@ namespace Nozomi.net
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<string>> PUTWithHttpMessagesAsync(UpdateRequestPropertyInputModel body = default(UpdateRequestPropertyInputModel), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<object>> GET1WithHttpMessagesAsync(string guid, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Update a request.
+        /// </summary>
+        /// <param name='body'>
+        /// The supposed properties/parameters of the request.
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<string>> PUTWithHttpMessagesAsync(UpdateRequestInputModel body = default(UpdateRequestInputModel), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

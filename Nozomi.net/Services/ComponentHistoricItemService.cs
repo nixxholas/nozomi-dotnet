@@ -18,7 +18,7 @@ namespace Nozomi.net.Services
     /// <summary>
     /// ComponentHistoricItemService operations.
     /// </summary>
-    public partial class ComponentHistoricItemService : IServiceOperations<NozomiApiClient>, IComponentHistoricItem
+    public partial class ComponentHistoricItemService : IServiceOperations<NozomiApiClient>, IComponentHistoricItemService
     {
         /// <summary>
         /// Initializes a new instance of the ComponentHistoricItemService class.

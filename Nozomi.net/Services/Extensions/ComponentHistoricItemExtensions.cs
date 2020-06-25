@@ -27,7 +27,7 @@ namespace Nozomi.net
             /// <param name='index'>
             /// The 'page' of the list of results in 100s.
             /// </param>
-            public static object GET(this IComponentHistoricItem operations, string componentGuid, int? index = 0)
+            public static object GET(this IComponentHistoricItemService operations, string componentGuid, int? index = 0)
             {
                 return operations.GETAsync(componentGuid, index).GetAwaiter().GetResult();
             }
@@ -47,7 +47,7 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GETAsync(this IComponentHistoricItem operations, string componentGuid, int? index = 0, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GETAsync(this IComponentHistoricItemService operations, string componentGuid, int? index = 0, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GETWithHttpMessagesAsync(componentGuid, index, null, cancellationToken).ConfigureAwait(false))
                 {

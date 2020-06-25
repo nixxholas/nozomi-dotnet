@@ -24,7 +24,7 @@ namespace Nozomi.net.Services.Extensions
             /// <param name='index'>
             /// the 'page' of the list of results in 50s.
             /// </param>
-            public static object GET(this IComponentType operations, int? index = 0)
+            public static object GET(this IComponentTypeService operations, int? index = 0)
             {
                 return operations.GETAsync(index).GetAwaiter().GetResult();
             }
@@ -42,7 +42,7 @@ namespace Nozomi.net.Services.Extensions
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GETAsync(this IComponentType operations, int? index = 0, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GETAsync(this IComponentTypeService operations, int? index = 0, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GETWithHttpMessagesAsync(index, null, cancellationToken).ConfigureAwait(false))
                 {
