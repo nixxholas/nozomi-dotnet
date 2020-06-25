@@ -11,7 +11,7 @@ namespace Nozomi.net
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Extension methods for WebsocketCommand.
+    /// Extension methods for WebsocketCommandService.
     /// </summary>
     public static partial class WebsocketCommandExtensions
     {

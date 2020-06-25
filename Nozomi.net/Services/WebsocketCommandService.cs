@@ -16,12 +16,12 @@ using Nozomi.net.Models;
 namespace Nozomi.net.Services
 {
     /// <summary>
-    /// WebsocketCommand operations.
+    /// WebsocketCommandService operations.
     /// </summary>
-    public partial class WebsocketCommand : IServiceOperations<NozomiApiClient>, IWebsocketCommand
+    public partial class WebsocketCommandService : IServiceOperations<NozomiApiClient>, IWebsocketCommand
     {
         /// <summary>
-        /// Initializes a new instance of the WebsocketCommand class.
+        /// Initializes a new instance of the WebsocketCommandService class.
         /// </summary>
         /// <param name='client'>
         /// Reference to the service client.
@@ -29,7 +29,7 @@ namespace Nozomi.net.Services
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public WebsocketCommand(NozomiApiClient client)
+        public WebsocketCommandService(NozomiApiClient client)
         {
             if (client == null)
             {
@@ -79,7 +79,7 @@ namespace Nozomi.net.Services
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "WebsocketCommand/All").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "WebsocketCommandService/All").ToString();
             List<string> _queryParameters = new List<string>();
             if (index != null)
             {
@@ -252,7 +252,7 @@ namespace Nozomi.net.Services
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "WebsocketCommand/AllByRequest").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "WebsocketCommandService/AllByRequest").ToString();
             List<string> _queryParameters = new List<string>();
             if (requestGuid != null)
             {
