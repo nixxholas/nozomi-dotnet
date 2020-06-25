@@ -165,7 +165,7 @@ namespace Nozomi.net.Services
             RequestProperty = new RequestProperty(this);
             SubCompute = new SubComputeService(this);
             WebsocketCommand = new WebsocketCommandService(this);
-            WebsocketCommandProperty = new WebsocketCommandProperty(this);
+            WebsocketCommandProperty = new WebsocketCommandPropertyService(this);
             BaseUri = new System.Uri(NozomiConstants.ApiBaseUrl);
             SerializationSettings = new JsonSerializerSettings
             {

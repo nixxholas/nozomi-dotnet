@@ -14,7 +14,7 @@ namespace Nozomi.net
     using System.Threading.Tasks;
 
     /// <summary>
-    /// WebsocketCommandProperty operations.
+    /// WebsocketCommandPropertyService operations.
     /// </summary>
     public partial interface IWebsocketCommandProperty
     {

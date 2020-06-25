@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Nozomi.net.Services.Extensions
 {
     /// <summary>
-    /// Extension methods for WebsocketCommandProperty.
+    /// Extension methods for WebsocketCommandPropertyService.
     /// </summary>
     public static partial class WebsocketCommandPropertyExtensions
     {

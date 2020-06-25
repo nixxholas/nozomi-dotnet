@@ -16,12 +16,12 @@ using Nozomi.net.Models;
 namespace Nozomi.net.Services
 {
     /// <summary>
-    /// WebsocketCommandProperty operations.
+    /// WebsocketCommandPropertyService operations.
     /// </summary>
-    public partial class WebsocketCommandProperty : IServiceOperations<NozomiApiClient>, IWebsocketCommandProperty
+    public partial class WebsocketCommandPropertyService : IServiceOperations<NozomiApiClient>, IWebsocketCommandProperty
     {
         /// <summary>
-        /// Initializes a new instance of the WebsocketCommandProperty class.
+        /// Initializes a new instance of the WebsocketCommandPropertyService class.
         /// </summary>
         /// <param name='client'>
         /// Reference to the service client.
@@ -29,7 +29,7 @@ namespace Nozomi.net.Services
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public WebsocketCommandProperty(NozomiApiClient client)
+        public WebsocketCommandPropertyService(NozomiApiClient client)
         {
             if (client == null)
             {
@@ -81,7 +81,7 @@ namespace Nozomi.net.Services
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "WebsocketCommandProperty/All").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "WebsocketCommandPropertyService/All").ToString();
             List<string> _queryParameters = new List<string>();
             if (index != null)
             {
@@ -254,7 +254,7 @@ namespace Nozomi.net.Services
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "WebsocketCommandProperty/AllByCommand").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "WebsocketCommandPropertyService/AllByCommand").ToString();
             List<string> _queryParameters = new List<string>();
             if (commandGuid != null)
             {
