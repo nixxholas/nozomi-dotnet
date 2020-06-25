@@ -29,6 +29,11 @@ namespace Nozomi.net.Services
         /// Gets or sets json deserialization settings.
         /// </summary>
         public JsonSerializerSettings DeserializationSettings { get; private set; }
+        
+        /// <summary>
+        /// Gets or sets the Http Response message.
+        /// </summary>
+        public HttpResponseMessage HttpResponseMessage { get; set; }
 
         /// <summary>
         /// Gets the IComponent.
