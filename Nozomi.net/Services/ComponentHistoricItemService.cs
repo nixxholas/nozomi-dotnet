@@ -5,10 +5,12 @@
 // </auto-generated>
 
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web;
 using Microsoft.Rest;
 using Newtonsoft.Json;
 using Nozomi.net.Models;
@@ -85,10 +87,11 @@ namespace Nozomi.net.Services
                 System.Uri.EscapeDataString(componentGuid));
 
             // Query Parameters
-            var _queryParameters = new List<string>();
+            var _queryParameters = new NameValueCollection();
             if (index != null)
-                _queryParameters.Add(string.Format("index={0}", System.Uri.EscapeDataString(Microsoft.Rest
-                    .Serialization.SafeJsonConvert.SerializeObject(index, Client.SerializationSettings).Trim('"'))));
+                _queryParameters["index"] = System.Uri.EscapeDataString(
+                    Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(index, Client.SerializationSettings)
+                        .Trim('"'));
             
             // Tracing Parameters
             var tracingParameters = new Dictionary<string, object>();
