@@ -82,9 +82,7 @@ namespace Nozomi.net.Services
                 throw new ValidationException(ValidationRules.CannotBeNull, "componentGuid");
             
             // Relative Url
-            var relativeUrl = "ComponentHistoricItemService/All/{componentGuid}";
-            relativeUrl = relativeUrl.Replace("{componentGuid}", 
-                System.Uri.EscapeDataString(componentGuid));
+            var relativeUrl = $"ComponentHistoricItemService/All/{System.Uri.EscapeDataString(componentGuid)}";
 
             // Query Parameters
             var _queryParameters = new NameValueCollection();
