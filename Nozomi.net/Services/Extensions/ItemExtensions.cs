@@ -11,7 +11,7 @@ namespace Nozomi.net
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Extension methods for Item.
+    /// Extension methods for ItemService.
     /// </summary>
     public static partial class ItemExtensions
     {
