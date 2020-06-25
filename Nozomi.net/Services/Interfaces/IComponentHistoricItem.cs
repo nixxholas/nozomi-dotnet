@@ -14,7 +14,7 @@ namespace Nozomi.net
     using System.Threading.Tasks;
 
     /// <summary>
-    /// ComponentHistoricItem operations.
+    /// ComponentHistoricItemService operations.
     /// </summary>
     public partial interface IComponentHistoricItem
     {

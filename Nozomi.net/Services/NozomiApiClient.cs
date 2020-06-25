@@ -154,7 +154,7 @@ namespace Nozomi.net.Services
         private void Initialize()
         {
             Component = new ComponentService(this);
-            ComponentHistoricItem = new ComponentHistoricItem(this);
+            ComponentHistoricItem = new ComponentHistoricItemService(this);
             ComponentType = new ComponentType(this);
             Compute = new Compute(this);
             ComputeExpression = new ComputeExpression(this);

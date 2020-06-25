@@ -16,12 +16,12 @@ using Nozomi.net.Models;
 namespace Nozomi.net.Services
 {
     /// <summary>
-    /// ComponentHistoricItem operations.
+    /// ComponentHistoricItemService operations.
     /// </summary>
-    public partial class ComponentHistoricItem : IServiceOperations<NozomiApiClient>, IComponentHistoricItem
+    public partial class ComponentHistoricItemService : IServiceOperations<NozomiApiClient>, IComponentHistoricItem
     {
         /// <summary>
-        /// Initializes a new instance of the ComponentHistoricItem class.
+        /// Initializes a new instance of the ComponentHistoricItemService class.
         /// </summary>
         /// <param name='client'>
         /// Reference to the service client.
@@ -29,7 +29,7 @@ namespace Nozomi.net.Services
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public ComponentHistoricItem(NozomiApiClient client)
+        public ComponentHistoricItemService(NozomiApiClient client)
         {
             if (client == null)
             {
@@ -93,7 +93,7 @@ namespace Nozomi.net.Services
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ComponentHistoricItem/All/{componentGuid}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ComponentHistoricItemService/All/{componentGuid}").ToString();
             _url = _url.Replace("{componentGuid}", System.Uri.EscapeDataString(componentGuid));
             List<string> _queryParameters = new List<string>();
             if (index != null)

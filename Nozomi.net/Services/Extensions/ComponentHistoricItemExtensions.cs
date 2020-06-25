@@ -11,7 +11,7 @@ namespace Nozomi.net
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Extension methods for ComponentHistoricItem.
+    /// Extension methods for ComponentHistoricItemService.
     /// </summary>
     public static partial class ComponentHistoricItemExtensions
     {
