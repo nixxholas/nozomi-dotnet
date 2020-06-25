@@ -4,11 +4,14 @@
 // regenerated.
 // </auto-generated>
 
+using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web;
 using Microsoft.Rest;
 using Microsoft.Rest.Serialization;
 using Newtonsoft.Json;
@@ -211,7 +214,7 @@ namespace Nozomi.net
         }
 
         public async Task<HttpOperationResponse<object>> Propagate<T>(HttpMethod httpMethod, string relativeUrl, 
-            List<string> queryParameters = null, Dictionary<string, object> tracingParameters = null, 
+            NameValueCollection queryParameters = null, Dictionary<string, object> tracingParameters = null, 
             Dictionary<string, List<string>> customHeaders = null, 
             CancellationToken cancellationToken = default(CancellationToken))
         {
@@ -228,12 +231,11 @@ namespace Nozomi.net
 
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")),
-                relativeUrl).ToString();
-            
-            if (queryParameters == null) queryParameters = new List<string>();
-            if (queryParameters.Count > 0)
-                _url += "?" + string.Join("&", queryParameters);
+            var uriBuilder = new UriBuilder(new System.Uri(
+                new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), relativeUrl).ToString());
+            var uriQuery = HttpUtility.ParseQueryString(uriBuilder.Query);
+            if (queryParameters != null && queryParameters.Count > 0) uriBuilder.Query = queryParameters.ToString();
+            var _url = uriBuilder.ToString();
 
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
