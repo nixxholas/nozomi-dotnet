@@ -213,7 +213,7 @@ namespace Nozomi.net
             CustomInitialize();
         }
 
-        public async Task<HttpOperationResponse<object>> Propagate<T>(HttpMethod httpMethod, string relativeUrl, 
+        public async Task<HttpOperationResponse<object>> Invoke<T>(HttpMethod httpMethod, string relativeUrl, 
             NameValueCollection queryParameters = null, Dictionary<string, object> tracingParameters = null, 
             Dictionary<string, List<string>> customHeaders = null, 
             CancellationToken cancellationToken = default(CancellationToken))

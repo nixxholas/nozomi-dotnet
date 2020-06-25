@@ -98,7 +98,7 @@ namespace Nozomi.net.Services
             tracingParameters.Add("index", index);
             tracingParameters.Add("componentGuid", componentGuid);
 
-            return await Client.Propagate<IList<ComponentHistoricItemViewModel>>(HttpMethod.Get, relativeUrl, 
+            return await Client.Invoke<IList<ComponentHistoricItemViewModel>>(HttpMethod.Get, relativeUrl, 
                 _queryParameters, tracingParameters, cancellationToken: cancellationToken);
         }
 
