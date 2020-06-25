@@ -5,7 +5,10 @@
 // </auto-generated>
 
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.Rest;
 using Microsoft.Rest.Serialization;
 using Newtonsoft.Json;
@@ -154,7 +157,7 @@ namespace Nozomi.net
         /// <summary>
         /// An optional partial-method to perform custom initialization.
         ///</summary>
-        private void CustomInitialize()
+        public void CustomInitialize()
         {
             // Initialise the response message first.
             HttpResponseMessage = new HttpResponseMessage();
@@ -205,6 +208,169 @@ namespace Nozomi.net
                     }
             };
             CustomInitialize();
+        }
+
+        public async Task<HttpOperationResponse<object>> Propagate<T>(HttpMethod httpMethod, string relativeUrl, 
+            List<string> queryParameters = null, Dictionary<string, object> tracingParameters = null, 
+            Dictionary<string, List<string>> customHeaders = null, 
+            CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // Tracing
+            if (tracingParameters == null) tracingParameters = new Dictionary<string, object>(); // Null handling
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, httpMethod.Method, tracingParameters);
+            }
+
+            // Construct URL
+            var _baseUrl = BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")),
+                relativeUrl).ToString();
+            
+            if (queryParameters == null) queryParameters = new List<string>();
+            if (queryParameters.Count > 0)
+                _url += "?" + string.Join("&", queryParameters);
+
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = httpMethod;
+            _httpRequest.RequestUri = new System.Uri(_url);
+            
+            // Set Headers
+            if (customHeaders != null)
+                foreach(var _header in customHeaders)
+                {
+                    if (HttpResponseMessage.Headers.Contains(_header.Key))
+                        HttpResponseMessage.Headers.Remove(_header.Key);
+                    HttpResponseMessage.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+
+            // TODO: Validate non-GET/HEAD-based support
+            // Serialize RequestService
+            string _requestContent = null;
+            if (tracingParameters.ContainsKey("body") && tracingParameters.TryGetValue("body", out var body))
+            {
+                _requestContent = Microsoft.Rest.Serialization.SafeJsonConvert.SerializeObject(body, 
+                    SerializationSettings);
+                _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
+                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue
+                    .Parse("application/json; charset=utf-8");
+            }
+
+            // Send RequestService
+            if (_shouldTrace)
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken)
+                .ConfigureAwait(false);
+            if (_shouldTrace)
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            
+            var _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200 && (int)_statusCode != 400 && (int)_statusCode != 401 
+                && (int)_statusCode != 403 && (int)_statusCode != 500)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status " +
+                                                                  "code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync()
+                        .ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            
+            // Create Result
+            var _result = new HttpOperationResponse<object>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync()
+                    .ConfigureAwait(false);
+                try
+                {
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert
+                        .DeserializeObject<T>(_responseContent, DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", 
+                        _responseContent, ex);
+                }
+            }
+            
+            // Deserialize Response
+            if ((int)_statusCode == 400)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync()
+                    .ConfigureAwait(false);
+                try
+                {
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert
+                        .DeserializeObject<string>(_responseContent, DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                        _httpResponse.Dispose();
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, 
+                        ex);
+                }
+            }
+            
+            // Deserialize Response
+            if ((int)_statusCode == 500)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync()
+                    .ConfigureAwait(false);
+                try
+                {
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert
+                        .DeserializeObject<string>(_responseContent, DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                        _httpResponse.Dispose();
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, 
+                        ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
         }
     }
 }
