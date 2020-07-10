@@ -27,6 +27,11 @@ namespace Nozomi.net
         /// The base URI of the service.
         /// </summary>
         public System.Uri BaseUri { get; set; }
+
+        /// <summary>
+        /// The API Key Header.
+        /// </summary>
+        private const string ApiKeyHeader = "X-Api-Key";
         
         /// <summary>
         /// The API Key issued by Nozomi for usage.
