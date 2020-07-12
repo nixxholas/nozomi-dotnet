@@ -1,7 +1,7 @@
 using Nozomi.net.Services;
 using NUnit.Framework;
 
-namespace Nozomi.net.Tests
+namespace Nozomi.net.UnitTests
 {
     public class ComponentTests
     {
