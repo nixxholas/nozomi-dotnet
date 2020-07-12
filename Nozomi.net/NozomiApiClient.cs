@@ -16,6 +16,7 @@ using Microsoft.Rest;
 using Microsoft.Rest.Serialization;
 using Newtonsoft.Json;
 using Nozomi.net.Constants;
+using Nozomi.net.Exceptions;
 using Nozomi.net.Interfaces;
 using Nozomi.net.Services;
 
@@ -36,7 +37,7 @@ namespace Nozomi.net
         /// <summary>
         /// The API Key issued by Nozomi for usage.
         /// </summary>
-        public string ApiKey { get; set; }
+        public string ApiKey { get; }
 
         /// <summary>
         /// Gets or sets json serialization settings.
@@ -183,15 +184,6 @@ namespace Nozomi.net
         }
 
         /// <summary>
-        /// An optional partial-method to perform custom initialization.
-        ///</summary>
-        public void CustomInitialize()
-        {
-            // Initialise the response message first.
-            HttpResponseMessage = new HttpResponseMessage();
-        }
-        
-        /// <summary>
         /// Initializes client properties.
         /// </summary>
         private void Initialize()
@@ -222,7 +214,13 @@ namespace Nozomi.net
                         new Iso8601TimeSpanConverter()
                     }
             };
-            CustomInitialize();
+            
+            // Initialise the response message.
+            HttpResponseMessage = new HttpResponseMessage();
+            
+            if (string.IsNullOrEmpty(ApiKeyHeader) || string.IsNullOrEmpty(ApiKey))
+                throw new ApiKeyConfigurationException(ApiKeyHeader, ApiKey);
+            HttpClient.DefaultRequestHeaders.Add(ApiKeyHeader, ApiKey);
         }
 
         public async Task<HttpOperationResponse<object>> Invoke<T>(HttpMethod httpMethod, string relativeUrl, 
