@@ -20,9 +20,9 @@ namespace Nozomi.net.Services.Extensions
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static string HEAD(this IConnectService operations)
+            public static string Validate(this IConnectService operations)
             {
-                return operations.HEADAsync().GetAwaiter().GetResult();
+                return ValidateAsync(operations).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -34,12 +34,11 @@ namespace Nozomi.net.Services.Extensions
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> HEADAsync(this IConnectService operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> ValidateAsync(this IConnectService operations, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.ValidateAsync(null, cancellationToken).ConfigureAwait(false))
-                {
+                using (var _result = await operations.ValidateAsync(cancellationToken)
+                    .ConfigureAwait(false))
                     return _result.Body;
-                }
             }
 
     }
