@@ -36,7 +36,7 @@ namespace Nozomi.net.Services.Extensions
             /// </param>
             public static async Task<string> HEADAsync(this IConnectService operations, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.HEADWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ValidateAsync(null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

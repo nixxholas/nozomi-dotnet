@@ -42,10 +42,6 @@ namespace Nozomi.net.Services
         /// </summary>
         public NozomiApiClient Client { get; private set; }
 
-        /// <summary>
-        /// Allows the client to validate his API key.
-        /// </summary>
-        /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
         /// <param name='cancellationToken'>
@@ -60,7 +56,8 @@ namespace Nozomi.net.Services
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<string>> HEADWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<string>> ValidateAsync(
+            CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -74,26 +71,13 @@ namespace Nozomi.net.Services
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ConnectService/Validate").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), 
+                "Connect/Validate").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
             _httpRequest.Method = new HttpMethod("HEAD");
             _httpRequest.RequestUri = new System.Uri(_url);
-            // Set Headers
-
-
-            if (customHeaders != null)
-            {
-                foreach(var _header in customHeaders)
-                {
-                    if (_httpRequest.Headers.Contains(_header.Key))
-                    {
-                        _httpRequest.Headers.Remove(_header.Key);
-                    }
-                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
-                }
-            }
 
             // Serialize RequestService
             string _requestContent = null;

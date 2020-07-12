@@ -18,10 +18,6 @@ namespace Nozomi.net
     /// </summary>
     public partial interface IConnectService
     {
-        /// <summary>
-        /// Allows the client to validate his API key.
-        /// </summary>
-        /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
         /// <param name='cancellationToken'>
@@ -33,6 +29,7 @@ namespace Nozomi.net
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<string>> HEADWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<string>> ValidateAsync(
+            CancellationToken cancellationToken = default(CancellationToken));
     }
 }
