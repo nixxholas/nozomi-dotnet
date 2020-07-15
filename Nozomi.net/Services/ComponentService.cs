@@ -86,7 +86,7 @@ namespace Nozomi.net.Services
             tracingParameters.Add("cancellationToken", cancellationToken);
             
             // Construct URL
-            var _url = $"ComponentService/All/{System.Uri.EscapeDataString(requestGuid)}";
+            var _url = $"Component/All/{System.Uri.EscapeDataString(requestGuid)}";
             
             // Query parameters
             var _queryParameters = new NameValueCollection();
@@ -104,9 +104,6 @@ namespace Nozomi.net.Services
         /// <param name='body'>
         /// The supposed properties/parameters of the component.
         /// </param>
-        /// <param name='customHeaders'>
-        /// Headers that will be added to request.
-        /// </param>
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
@@ -119,7 +116,8 @@ namespace Nozomi.net.Services
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<string>> POSTWithHttpMessagesAsync(CreateComponentInputModel body = default(CreateComponentInputModel), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<string>> CreateAsync(CreateComponentInputModel body = 
+            default(CreateComponentInputModel), CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -134,26 +132,13 @@ namespace Nozomi.net.Services
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ComponentService/Create").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), 
+                "Component/Create").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
             _httpRequest.Method = new HttpMethod("POST");
             _httpRequest.RequestUri = new System.Uri(_url);
-            // Set Headers
-
-
-            if (customHeaders != null)
-            {
-                foreach(var _header in customHeaders)
-                {
-                    if (_httpRequest.Headers.Contains(_header.Key))
-                    {
-                        _httpRequest.Headers.Remove(_header.Key);
-                    }
-                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
-                }
-            }
 
             // Serialize RequestService
             string _requestContent = null;
@@ -285,7 +270,8 @@ namespace Nozomi.net.Services
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<string>> DELETEWithHttpMessagesAsync(string guid = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<string>> DeleteAsync(string guid = default(string), 
+            CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -300,7 +286,8 @@ namespace Nozomi.net.Services
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ComponentService/Delete").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), 
+                "Component/Delete").ToString();
             List<string> _queryParameters = new List<string>();
             if (guid != null)
             {
@@ -315,21 +302,7 @@ namespace Nozomi.net.Services
             HttpResponseMessage _httpResponse = null;
             _httpRequest.Method = new HttpMethod("DELETE");
             _httpRequest.RequestUri = new System.Uri(_url);
-            // Set Headers
-
-
-            if (customHeaders != null)
-            {
-                foreach(var _header in customHeaders)
-                {
-                    if (_httpRequest.Headers.Contains(_header.Key))
-                    {
-                        _httpRequest.Headers.Remove(_header.Key);
-                    }
-                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
-                }
-            }
-
+            
             // Serialize RequestService
             string _requestContent = null;
             // Send RequestService
@@ -442,9 +415,6 @@ namespace Nozomi.net.Services
         /// <param name='index'>
         /// The 'page' of the list of historical values in 100s
         /// </param>
-        /// <param name='customHeaders'>
-        /// Headers that will be added to request.
-        /// </param>
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
@@ -463,7 +433,8 @@ namespace Nozomi.net.Services
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> GET1WithHttpMessagesAsync(string guid, int? index = 0, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> GetAsync(string guid, int? index = 0, 
+            CancellationToken cancellationToken = default(CancellationToken))
         {
             if (guid == null)
             {
@@ -479,11 +450,12 @@ namespace Nozomi.net.Services
                 tracingParameters.Add("guid", guid);
                 tracingParameters.Add("index", index);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "GET1", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "GET", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ComponentService/Get/{guid}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), 
+                "Component/Get/{guid}").ToString();
             _url = _url.Replace("{guid}", System.Uri.EscapeDataString(guid));
             List<string> _queryParameters = new List<string>();
             if (index != null)
@@ -499,20 +471,6 @@ namespace Nozomi.net.Services
             HttpResponseMessage _httpResponse = null;
             _httpRequest.Method = new HttpMethod("GET");
             _httpRequest.RequestUri = new System.Uri(_url);
-            // Set Headers
-
-
-            if (customHeaders != null)
-            {
-                foreach(var _header in customHeaders)
-                {
-                    if (_httpRequest.Headers.Contains(_header.Key))
-                    {
-                        _httpRequest.Headers.Remove(_header.Key);
-                    }
-                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
-                }
-            }
 
             // Serialize RequestService
             string _requestContent = null;
@@ -623,9 +581,6 @@ namespace Nozomi.net.Services
         /// <param name='body'>
         /// The supposed properties/parameters of the component.
         /// </param>
-        /// <param name='customHeaders'>
-        /// Headers that will be added to request.
-        /// </param>
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
@@ -638,7 +593,8 @@ namespace Nozomi.net.Services
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<string>> PUTWithHttpMessagesAsync(UpdateComponentInputModel body = default(UpdateComponentInputModel), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<string>> UpdateAsync(UpdateComponentInputModel body = 
+            default(UpdateComponentInputModel), CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -653,27 +609,14 @@ namespace Nozomi.net.Services
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "ComponentService/Update").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), 
+                "Component/Update").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
             _httpRequest.Method = new HttpMethod("PUT");
             _httpRequest.RequestUri = new System.Uri(_url);
-            // Set Headers
-
-
-            if (customHeaders != null)
-            {
-                foreach(var _header in customHeaders)
-                {
-                    if (_httpRequest.Headers.Contains(_header.Key))
-                    {
-                        _httpRequest.Headers.Remove(_header.Key);
-                    }
-                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
-                }
-            }
-
+            
             // Serialize RequestService
             string _requestContent = null;
             if(body != null)

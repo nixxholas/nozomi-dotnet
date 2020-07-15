@@ -27,16 +27,16 @@ namespace Nozomi.net
             /// <param name='index'>
             /// The 'page' of the list of results in 100s
             /// </param>
-            public static object GET(this IComponentService operations, string requestGuid, int? index = 0)
+            public static object All(this IComponentService operations, string requestGuid, int? index = 0)
             {
-                return operations.GETAsync(requestGuid, index).GetAwaiter().GetResult();
+                return operations.AllAsync(requestGuid, index).GetAwaiter().GetResult();
             }
 
             /// <summary>
             /// Obtain all components you have created.
             /// </summary>
             /// <param name='operations'>
-            /// The operations group for this extension method.
+            /// The operations group for this extension method.-
             /// </param>
             /// <param name='requestGuid'>
             /// The unique identifier of the request that contains this component.
@@ -47,7 +47,7 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GETAsync(this IComponentService operations, string requestGuid, 
+            public static async Task<object> AllAsync(this IComponentService operations, string requestGuid, 
                 int? index = 0, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations
@@ -66,9 +66,10 @@ namespace Nozomi.net
             /// <param name='body'>
             /// The supposed properties/parameters of the component.
             /// </param>
-            public static string POST(this IComponentService operations, CreateComponentInputModel body = default(CreateComponentInputModel))
+            public static string Create(this IComponentService operations, 
+                CreateComponentInputModel body = default(CreateComponentInputModel))
             {
-                return operations.POSTAsync(body).GetAwaiter().GetResult();
+                return CreateAsync(operations, body).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -83,9 +84,12 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> POSTAsync(this IComponentService operations, CreateComponentInputModel body = default(CreateComponentInputModel), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> CreateAsync(this IComponentService operations, 
+                CreateComponentInputModel body = default(CreateComponentInputModel), 
+                CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.POSTWithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.CreateAsync(body, cancellationToken)
+                    .ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -100,9 +104,9 @@ namespace Nozomi.net
             /// <param name='guid'>
             /// The unique identifier of the component to delete.
             /// </param>
-            public static string DELETE(this IComponentService operations, string guid = default(string))
+            public static string Delete(this IComponentService operations, string guid = default(string))
             {
-                return operations.DELETEAsync(guid).GetAwaiter().GetResult();
+                return DeleteAsync(operations, guid).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -117,9 +121,11 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> DELETEAsync(this IComponentService operations, string guid = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> DeleteAsync(this IComponentService operations, 
+                string guid = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.DELETEWithHttpMessagesAsync(guid, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.DeleteAsync(guid, cancellationToken)
+                    .ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -137,9 +143,9 @@ namespace Nozomi.net
             /// <param name='index'>
             /// The 'page' of the list of historical values in 100s
             /// </param>
-            public static object GET1(this IComponentService operations, string guid, int? index = 0)
+            public static object Get(this IComponentService operations, string guid, int? index = 0)
             {
-                return operations.GET1Async(guid, index).GetAwaiter().GetResult();
+                return GetAsync(operations, guid, index).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -157,9 +163,11 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GET1Async(this IComponentService operations, string guid, int? index = 0, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GetAsync(this IComponentService operations, string guid, int? index = 0, 
+                CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GET1WithHttpMessagesAsync(guid, index, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetAsync(guid, index, cancellationToken)
+                    .ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -174,9 +182,10 @@ namespace Nozomi.net
             /// <param name='body'>
             /// The supposed properties/parameters of the component.
             /// </param>
-            public static string PUT(this IComponentService operations, UpdateComponentInputModel body = default(UpdateComponentInputModel))
+            public static string Update(this IComponentService operations, 
+                UpdateComponentInputModel body = default(UpdateComponentInputModel))
             {
-                return operations.PUTAsync(body).GetAwaiter().GetResult();
+                return UpdateAsync(operations, body).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -191,9 +200,12 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> PUTAsync(this IComponentService operations, UpdateComponentInputModel body = default(UpdateComponentInputModel), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> UpdateAsync(this IComponentService operations, 
+                UpdateComponentInputModel body = default(UpdateComponentInputModel), 
+                CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PUTWithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.UpdateAsync(body, cancellationToken)
+                    .ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

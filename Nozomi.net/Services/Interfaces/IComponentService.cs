@@ -47,9 +47,6 @@ namespace Nozomi.net
         /// <param name='body'>
         /// The supposed properties/parameters of the component.
         /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
@@ -59,16 +56,14 @@ namespace Nozomi.net
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<string>> POSTWithHttpMessagesAsync(CreateComponentInputModel body = default(CreateComponentInputModel), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<string>> CreateAsync(CreateComponentInputModel body = 
+            default(CreateComponentInputModel), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Delete a component.
         /// </summary>
         /// <param name='guid'>
         /// The unique identifier of the component to delete.
         /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
@@ -78,7 +73,8 @@ namespace Nozomi.net
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<string>> DELETEWithHttpMessagesAsync(string guid = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<string>> DeleteAsync(string guid = default(string),
+            CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Obtain the component and its historical values.
         /// </summary>
@@ -87,9 +83,6 @@ namespace Nozomi.net
         /// </param>
         /// <param name='index'>
         /// The 'page' of the list of historical values in 100s
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
         /// </param>
         /// <param name='cancellationToken'>
         /// The cancellation token.
@@ -103,15 +96,13 @@ namespace Nozomi.net
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> GET1WithHttpMessagesAsync(string guid, int? index = 0, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> GetAsync(string guid, int? index = 0, 
+            CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Update a component.
         /// </summary>
         /// <param name='body'>
         /// The supposed properties/parameters of the component.
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
         /// </param>
         /// <param name='cancellationToken'>
         /// The cancellation token.
@@ -122,6 +113,7 @@ namespace Nozomi.net
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<string>> PUTWithHttpMessagesAsync(UpdateComponentInputModel body = default(UpdateComponentInputModel), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<string>> UpdateAsync(UpdateComponentInputModel body = 
+            default(UpdateComponentInputModel), CancellationToken cancellationToken = default(CancellationToken));
     }
 }
