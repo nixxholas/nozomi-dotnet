@@ -74,11 +74,6 @@ namespace Nozomi.net.Services
         public async Task<HttpOperationResponse<object>> All(string requestGuid, int? index = 0, 
             CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (requestGuid == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "requestGuid");
-            }
-            
             // Tracing parameters
             Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
             tracingParameters.Add("index", index);
@@ -86,13 +81,17 @@ namespace Nozomi.net.Services
             tracingParameters.Add("cancellationToken", cancellationToken);
             
             // Construct URL
-            var _url = $"Component/All/{System.Uri.EscapeDataString(requestGuid)}";
+            var _url = $"Component/All";
             
             // Query parameters
             var _queryParameters = new NameValueCollection();
-            if (index != null)
+            if (index != null) {
                 _queryParameters["index"] = System.Uri.EscapeDataString(Microsoft.Rest.Serialization.SafeJsonConvert
                     .SerializeObject(index, Client.SerializationSettings).Trim('"'));
+                _queryParameters["requestGuid"] = !string.IsNullOrEmpty(requestGuid) ? 
+                    System.Uri.EscapeDataString(Microsoft.Rest.Serialization.SafeJsonConvert
+                    .SerializeObject(requestGuid, Client.SerializationSettings).Trim('"')) : null;
+            }
             
             return await Client.Invoke<IList<ComponentViewModel>>(HttpMethod.Get, _url, _queryParameters, 
                 tracingParameters, cancellationToken: cancellationToken);
