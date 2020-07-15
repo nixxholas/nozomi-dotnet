@@ -23,9 +23,9 @@ namespace Nozomi.net.Services.Extensions
             /// <param name='index'>
             /// The 'page' of the list of results of every x items.
             /// </param>
-            public static object GET(this IComputeService operations, int index)
+            public static object All(this IComputeService operations, int index)
             {
-                return operations.GETAsync(index).GetAwaiter().GetResult();
+                return AllAsync(operations, index).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -40,9 +40,11 @@ namespace Nozomi.net.Services.Extensions
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GETAsync(this IComputeService operations, int index, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> AllAsync(this IComputeService operations, int index, 
+                CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.AllAsync(index, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.AllAsync(index, cancellationToken)
+                    .ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -57,9 +59,9 @@ namespace Nozomi.net.Services.Extensions
             /// <param name='guid'>
             /// The Guid of the compute in question.
             /// </param>
-            public static object GET1(this IComputeService operations, string guid)
+            public static object Get(this IComputeService operations, string guid)
             {
-                return operations.GET1Async(guid).GetAwaiter().GetResult();
+                return GetAsync(operations, guid).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -74,9 +76,11 @@ namespace Nozomi.net.Services.Extensions
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GET1Async(this IComputeService operations, string guid, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GetAsync(this IComputeService operations, string guid, 
+                CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetAsync(guid, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetAsync(guid, cancellationToken)
+                    .ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
