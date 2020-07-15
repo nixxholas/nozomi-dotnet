@@ -15,7 +15,8 @@ namespace Nozomi.net.NetCoreConsole
             var apiClient = new NozomiApiClient((string) envVars["key"]);
 
             var result = await apiClient.ConnectService.ValidateAsync();
-            Console.WriteLine(result);
+            Console.WriteLine(result.Response.IsSuccessStatusCode ? "Successfully executed Connect/Validate API." 
+                : "There was an issue executing Connect/Validate API successfully.");
         }
     }
 }
