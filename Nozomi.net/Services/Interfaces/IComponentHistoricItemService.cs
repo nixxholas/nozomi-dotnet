@@ -36,7 +36,7 @@ namespace Nozomi.net
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> All(string componentGuid, int? index = 0, 
+        Task<HttpOperationResponse<object>> AllAsync(string componentGuid, int? index = 0, 
             CancellationToken cancellationToken = default(CancellationToken));
     }
 }

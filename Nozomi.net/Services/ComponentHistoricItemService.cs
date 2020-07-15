@@ -20,7 +20,8 @@ namespace Nozomi.net.Services
     /// <summary>
     /// ComponentHistoricItemService operations.
     /// </summary>
-    public partial class ComponentHistoricItemService : IServiceOperations<NozomiApiClient>, IComponentHistoricItemService
+    public partial class ComponentHistoricItemService : IServiceOperations<NozomiApiClient>, 
+        IComponentHistoricItemService
     {
         /// <summary>
         /// Initializes a new instance of the ComponentHistoricItemService class.
@@ -75,14 +76,14 @@ namespace Nozomi.net.Services
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> All(string componentGuid, int? index = 0, 
+        public async Task<HttpOperationResponse<object>> AllAsync(string componentGuid, int? index = 0, 
             CancellationToken cancellationToken = default(CancellationToken))
         {
             if (componentGuid == null)
                 throw new ValidationException(ValidationRules.CannotBeNull, "componentGuid");
             
             // Relative Url
-            var relativeUrl = $"ComponentHistoricItemService/All/{System.Uri.EscapeDataString(componentGuid)}";
+            var relativeUrl = $"ComponentHistoricItem/All/{System.Uri.EscapeDataString(componentGuid)}";
 
             // Query Parameters
             var _queryParameters = new NameValueCollection();
