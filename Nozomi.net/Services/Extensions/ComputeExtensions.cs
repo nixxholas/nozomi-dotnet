@@ -42,7 +42,7 @@ namespace Nozomi.net.Services.Extensions
             /// </param>
             public static async Task<object> GETAsync(this IComputeService operations, int index, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GETWithHttpMessagesAsync(index, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.AllAsync(index, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -76,7 +76,7 @@ namespace Nozomi.net.Services.Extensions
             /// </param>
             public static async Task<object> GET1Async(this IComputeService operations, string guid, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GET1WithHttpMessagesAsync(guid, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetAsync(guid, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
