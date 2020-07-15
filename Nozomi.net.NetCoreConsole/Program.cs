@@ -15,7 +15,7 @@ namespace Nozomi.net.NetCoreConsole
             var apiClient = new NozomiApiClient((string) envVars["key"]);
 
             var result = await apiClient.ConnectService.ValidateAsync();
-            Console.WriteLine(result.Response.Content.ToString());
+            Console.WriteLine(result);
         }
     }
 }
