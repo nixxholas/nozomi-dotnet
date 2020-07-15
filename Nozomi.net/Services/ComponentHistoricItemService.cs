@@ -55,9 +55,6 @@ namespace Nozomi.net.Services
         /// <param name='index'>
         /// The 'page' of the list of results in 100s.
         /// </param>
-        /// <param name='customHeaders'>
-        /// Headers that will be added to request.
-        /// </param>
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
