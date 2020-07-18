@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Nozomi.net.Models;
 
 namespace Nozomi.net.NetCoreConsole
 {
@@ -14,8 +15,11 @@ namespace Nozomi.net.NetCoreConsole
             
             var apiClient = new NozomiApiClient((string) envVars["key"]);
 
-            var result = await apiClient.ConnectService.ValidateAsync();
-            Console.WriteLine(result.Response.IsSuccessStatusCode ? "Successfully executed Connect/Validate API." 
+            var componentAllResult = await apiClient.ComponentService.AllAsync(null);
+            Console.WriteLine(componentAllResult);
+
+            var connectValidateResult = await apiClient.ConnectService.ValidateAsync();
+            Console.WriteLine(connectValidateResult.Response.IsSuccessStatusCode ? "Successfully executed Connect/Validate API." 
                 : "There was an issue executing Connect/Validate API successfully.");
         }
     }
