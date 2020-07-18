@@ -4,6 +4,7 @@
 // regenerated.
 // </auto-generated>
 
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Net;
@@ -85,13 +86,12 @@ namespace Nozomi.net.Services
             
             // Query parameters
             var _queryParameters = new NameValueCollection();
-            if (index != null) {
-                _queryParameters["index"] = System.Uri.EscapeDataString(Microsoft.Rest.Serialization.SafeJsonConvert
-                    .SerializeObject(index, Client.SerializationSettings).Trim('"'));
+            _queryParameters["index"] = System.Uri.EscapeDataString(Microsoft.Rest.Serialization.SafeJsonConvert
+                .SerializeObject(index != null ? index : 0, Client.SerializationSettings).Trim('"'));
+            if (!string.IsNullOrEmpty(requestGuid))
                 _queryParameters["requestGuid"] = !string.IsNullOrEmpty(requestGuid) ? 
                     System.Uri.EscapeDataString(Microsoft.Rest.Serialization.SafeJsonConvert
-                    .SerializeObject(requestGuid, Client.SerializationSettings).Trim('"')) : null;
-            }
+                        .SerializeObject(requestGuid, Client.SerializationSettings).Trim('"')) : null;
             
             return await Client.Invoke<IList<ComponentViewModel>>(HttpMethod.Get, _url, _queryParameters, 
                 tracingParameters, cancellationToken: cancellationToken);
