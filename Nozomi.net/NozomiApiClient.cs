@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
@@ -17,6 +18,7 @@ using Microsoft.Rest.Serialization;
 using Newtonsoft.Json;
 using Nozomi.net.Constants;
 using Nozomi.net.Exceptions;
+using Nozomi.net.Helpers;
 using Nozomi.net.Interfaces;
 using Nozomi.net.Services;
 
@@ -220,6 +222,8 @@ namespace Nozomi.net
             
             if (string.IsNullOrEmpty(ApiKeyHeader) || string.IsNullOrEmpty(ApiKey))
                 throw new ApiKeyConfigurationException(ApiKeyHeader, ApiKey);
+            
+            HttpClient.DefaultRequestHeaders.Clear();
             HttpClient.DefaultRequestHeaders.Add(ApiKeyHeader, ApiKey);
         }
 
@@ -246,7 +250,8 @@ namespace Nozomi.net
             var uriBuilder = new UriBuilder(new System.Uri(
                 new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), relativeUrl).ToString());
             var uriQuery = HttpUtility.ParseQueryString(uriBuilder.Query);
-            if (queryParameters != null && queryParameters.Count > 0) uriBuilder.Query = queryParameters.ToString();
+            if (queryParameters != null && queryParameters.Count > 0) 
+                uriBuilder.Query = QueryHelper.ConstructQueryString(queryParameters);
             var _url = uriBuilder.ToString();
 
             // Create HTTP transport objects
