@@ -4,6 +4,8 @@
 // regenerated.
 // </auto-generated>
 
+using Microsoft.Rest;
+
 namespace Nozomi.net
 {
     using Models;
@@ -27,7 +29,8 @@ namespace Nozomi.net
             /// <param name='index'>
             /// The 'page' of the list of results in 100s
             /// </param>
-            public static object All(this IComponentService operations, string requestGuid, int? index = 0)
+            public static HttpOperationResponse<object> All(this IComponentService operations, string requestGuid, 
+                int? index = 0)
             {
                 return operations.AllAsync(requestGuid, index).GetAwaiter().GetResult();
             }
@@ -47,13 +50,13 @@ namespace Nozomi.net
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> AllAsync(this IComponentService operations, string requestGuid, 
-                int? index = 0, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<HttpOperationResponse<object>> AllAsync(this IComponentService operations, 
+                string requestGuid, int? index = 0, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations
                     .All(requestGuid, index, cancellationToken).ConfigureAwait(false))
                 {
-                    return _result.Body;
+                    return _result;
                 }
             }
 
